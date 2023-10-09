@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1406e39c-af8c-4de8-a550-86e2f918d11f" name="Changes" comment="" />
+    <list default="true" id="1406e39c-af8c-4de8-a550-86e2f918d11f" name="Changes" comment="#1 init" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,6 +35,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
     "last_opened_file_path": "C:/Users/phkya/Documents/GitHub/Invader_A3_Codebase",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -53,10 +54,24 @@
       <updated>1696845249884</updated>
       <workItem from="1696845250894" duration="2425000" />
       <workItem from="1696854914286" duration="455000" />
+      <workItem from="1696887975106" duration="619000" />
     </task>
+    <task id="LOCAL-00001" summary="#1 init">
+      <option name="closed" value="true" />
+      <created>1696888615525</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1696888615525</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="#1 init" />
+    <option name="LAST_COMMIT_MESSAGE" value="#1 init" />
   </component>
 </project>

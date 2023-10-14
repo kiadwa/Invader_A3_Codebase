@@ -3,10 +3,8 @@ package invaders.engine;
 import java.util.List;
 import java.util.ArrayList;
 
-import invaders.ConfigReader;
 import invaders.entities.EntityViewImpl;
 import invaders.entities.SpaceBackground;
-import javafx.scene.control.Alert;
 import javafx.util.Duration;
 
 import invaders.entities.EntityView;
@@ -15,7 +13,6 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
-import org.json.simple.JSONObject;
 
 public class GameWindow {
 	private final int width;
@@ -25,7 +22,7 @@ public class GameWindow {
     private GameEngine model;
     private List<EntityView> entityViews =  new ArrayList<EntityView>();
     private Renderable background;
-
+    Timeline timeline;
     private double xViewportOffset = 0.0;
     private double yViewportOffset = 0.0;
     // private static final double VIEWPORT_MARGIN = 280.0;
@@ -47,11 +44,24 @@ public class GameWindow {
     }
 
 	public void run() {
-         Timeline timeline = new Timeline(new KeyFrame(Duration.millis(17), t -> this.draw()));
+         timeline = new Timeline(new KeyFrame(Duration.millis(17), t -> this.draw()));
 
          timeline.setCycleCount(Timeline.INDEFINITE);
          timeline.play();
     }
+    //pause game
+    public void pauseGame(){
+        if(timeline != null){
+            timeline.pause();
+        }
+    }
+    //resume game
+    public void resumeGame(){
+        if(timeline!= null){
+            timeline.play();
+        }
+    }
+
 
 
     private void draw(){

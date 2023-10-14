@@ -15,6 +15,7 @@ class KeyboardInputHandler {
     private final GameEngine model;
     private boolean left = false;
     private boolean right = false;
+    private boolean showMenu = false;
     private Set<KeyCode> pressedKeys = new HashSet<>();
 
     private Map<String, MediaPlayer> sounds = new HashMap<>();
@@ -36,6 +37,18 @@ class KeyboardInputHandler {
             return;
         }
         pressedKeys.add(keyEvent.getCode());
+        if(keyEvent.getCode().equals(KeyCode.DIGIT1)){
+            //TODO Easy mode
+            System.out.println("just pressed 1");
+        }
+        if(keyEvent.getCode().equals(KeyCode.DIGIT2)){
+            //TODO Medium Mode
+            System.out.println("just pressed 2");
+        }
+        if(keyEvent.getCode().equals(KeyCode.DIGIT3)){
+            //TODO Hard mode
+            System.out.println("just pressed 3");
+        }
 
         if (keyEvent.getCode().equals(KeyCode.SPACE)) {
             if (model.shootPressed()) {

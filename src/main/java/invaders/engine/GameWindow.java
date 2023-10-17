@@ -63,10 +63,31 @@ public class GameWindow {
             timeline.play();
         }
     }
+    public void detectModeChange(){
+        if(keyboardInputHandler.isEasyMode() && keyboardInputHandler.getModeJustChanged()){
+            keyboardInputHandler.setModeJustChanged(false);
+            this.diffChanged = true;
+        }else if(keyboardInputHandler.getModeJustChanged() && keyboardInputHandler.isMediumMode()){
+            keyboardInputHandler.setModeJustChanged(false);
+            this.diffChanged = true;
+        }else if(keyboardInputHandler.getModeJustChanged() && keyboardInputHandler.isHardMode()){
+            keyboardInputHandler.setModeJustChanged(false);
+            this.diffChanged = true;
+        }
+    }
+    public void revertModeChange(){
+        if(diffChanged){
+            //put operations to change mode here.
+            System.out.println("Change Mode now");
+            this.diffChanged = false;
+        }
+    }
 
 
     private void draw(){
         model.update();
+        detectModeChange();
+        revertModeChange();
         List<Renderable> renderables = model.getRenderables();
         for (Renderable entity : renderables) {
             boolean notFound = true;

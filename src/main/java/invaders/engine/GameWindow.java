@@ -25,6 +25,8 @@ public class GameWindow {
     Timeline timeline;
     private double xViewportOffset = 0.0;
     private double yViewportOffset = 0.0;
+    private KeyboardInputHandler keyboardInputHandler;
+    private boolean diffChanged = false;
     // private static final double VIEWPORT_MARGIN = 280.0;
 
 	public GameWindow(GameEngine model){
@@ -36,7 +38,7 @@ public class GameWindow {
         scene = new Scene(pane, width, height);
         this.background = new SpaceBackground(model, pane);
 
-        KeyboardInputHandler keyboardInputHandler = new KeyboardInputHandler(this.model);
+        keyboardInputHandler = new KeyboardInputHandler(this.model);
 
         scene.setOnKeyPressed(keyboardInputHandler::handlePressed);
         scene.setOnKeyReleased(keyboardInputHandler::handleReleased);
@@ -63,10 +65,8 @@ public class GameWindow {
     }
 
 
-
     private void draw(){
         model.update();
-
         List<Renderable> renderables = model.getRenderables();
         for (Renderable entity : renderables) {
             boolean notFound = true;

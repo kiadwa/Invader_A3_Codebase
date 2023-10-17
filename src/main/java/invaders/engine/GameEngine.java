@@ -35,6 +35,7 @@ public class GameEngine {
 	private int gameWidth;
 	private int gameHeight;
 	private int timer = 45;
+	private KeyboardInputHandler keyboardInputHandler;
 
 	public GameEngine(String config){
 		// Read the config here
@@ -68,6 +69,8 @@ public class GameEngine {
 		}
 
 	}
+
+
 
 	/**
 	 * Updates the game/simulation

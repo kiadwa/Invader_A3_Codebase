@@ -5,5 +5,4 @@ import invaders.gameobject.Bunker;
 public interface BunkerPrototype {
     Bunker copy();
 
-
 }

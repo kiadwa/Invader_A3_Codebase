@@ -19,14 +19,18 @@ import org.json.simple.JSONObject;
  * This class manages the main loop and logic of the game
  */
 public class GameEngine {
+	//TODO change this 2 to change difficulty
 	private List<GameObject> gameObjects = new ArrayList<>(); // A list of game objects that gets updated each frame
+	private List<Renderable> renderables =  new ArrayList<>();
+
+
+
 	private List<GameObject> pendingToAddGameObject = new ArrayList<>();
 	private List<GameObject> pendingToRemoveGameObject = new ArrayList<>();
 
 	private List<Renderable> pendingToAddRenderable = new ArrayList<>();
 	private List<Renderable> pendingToRemoveRenderable = new ArrayList<>();
 
-	private List<Renderable> renderables =  new ArrayList<>();
 
 	private Player player;
 

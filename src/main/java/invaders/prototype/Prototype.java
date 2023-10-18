@@ -1,5 +1,6 @@
 package invaders.prototype;
 
-public class Prototype {
+public interface Prototype {
+    void copy();
 
 }

@@ -12,13 +12,15 @@ import invaders.gameobject.Bunker;
 import invaders.gameobject.Enemy;
 import invaders.gameobject.GameObject;
 import invaders.entities.Player;
+import invaders.mementoUndo.GameEngineMemento;
+import invaders.mementoUndo.Originator;
 import invaders.rendering.Renderable;
 import org.json.simple.JSONObject;
 
 /**
  * This class manages the main loop and logic of the game
  */
-public class GameEngine {
+public class GameEngine implements Originator {
 	//TODO change this 2 to change difficulty
 	private List<GameObject> gameObjects = new ArrayList<>(); // A list of game objects that gets updated each frame
 	private List<Renderable> renderables =  new ArrayList<>();
@@ -201,5 +203,15 @@ public class GameEngine {
 
 	public Player getPlayer() {
 		return player;
+	}
+
+	@Override
+	public GameEngineMemento save() {
+		return null;
+	}
+
+	@Override
+	public void restore(GameEngineMemento memento) {
+
 	}
 }

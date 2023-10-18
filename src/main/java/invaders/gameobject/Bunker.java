@@ -3,12 +3,13 @@ package invaders.gameobject;
 import invaders.engine.GameEngine;
 import invaders.physics.Collider;
 import invaders.physics.Vector2D;
+import invaders.prototype.BunkerPrototype;
 import invaders.rendering.Renderable;
 import invaders.state.BunkerState;
 import invaders.state.GreenState;
 import javafx.scene.image.Image;
 
-public class Bunker implements GameObject, Renderable {
+public class Bunker implements GameObject, Renderable, BunkerPrototype {
     private Vector2D position;
     private double width;
     private double height;
@@ -105,5 +106,19 @@ public class Bunker implements GameObject, Renderable {
 
     public void setState(BunkerState state) {
         this.state = state;
+    }
+
+    @Override
+    public Bunker copy() {
+        Bunker bunker = new Bunker();
+
+        bunker.setHeight((int) this.height);
+        bunker.setWidth((int) this.width);
+        bunker.setState(this.state);
+        bunker.setImage(this.image);
+        bunker.setLives(this.lives);
+        bunker.setPosition(this.position);
+        return bunker;
+
     }
 }

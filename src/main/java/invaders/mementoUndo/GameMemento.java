@@ -66,12 +66,12 @@ public class GameMemento implements GameEngineMemento{
     }
 
     @Override
-    public List<GameObject> getPendingToAddGameObjects(List<GameObject> gameObjects) {
+    public List<GameObject> getPendingToAddGameObjects() {
         return this.pendingToAddGameObjects;
     }
 
     @Override
-    public List<GameObject> getPendingToRemoveGameObjects(List<GameObject> gameObjects) {
+    public List<GameObject> getPendingToRemoveGameObjects() {
         return this.pendingToRemoveGameObjects;
     }
 }

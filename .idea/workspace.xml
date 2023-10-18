@@ -5,8 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1406e39c-af8c-4de8-a550-86e2f918d11f" name="Changes" comment="#3 rethink">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/invaders/prototype/BunkerPrototype.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/invaders/prototype/EnemyProjectilePrototype.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/invaders/prototype/PlayerProjectilePrototype.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/invaders/prototype/PlayerPrototype.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/prototype/Prototype.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/prototype/Prototype.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/engine/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/engine/GameEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/entities/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/factory/EnemyProjectile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/factory/EnemyProjectile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/factory/PlayerProjectile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/factory/PlayerProjectile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/gameobject/Bunker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/gameobject/Bunker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/gameobject/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/gameobject/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/gameobject/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/gameobject/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/mementoUndo/GameEngineMemento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/mementoUndo/GameEngineMemento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/mementoUndo/GameMemento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/mementoUndo/GameMemento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/prototype/Prototype.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/prototype/EnemyPrototype.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,8 +47,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -60,7 +74,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/phkya/Documents/GitHub/Invader_A3_Codebase&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/phkya/Documents/GitHub/StrategyBalls1&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -92,7 +106,8 @@
       <workItem from="1697502884092" duration="10706000" />
       <workItem from="1697536874873" duration="4000" />
       <workItem from="1697537078601" duration="21000" />
-      <workItem from="1697584079346" duration="1576000" />
+      <workItem from="1697584079346" duration="6038000" />
+      <workItem from="1697621423454" duration="8024000" />
     </task>
     <task id="LOCAL-00001" summary="#1 init">
       <option name="closed" value="true" />
@@ -166,7 +181,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697537094727</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="#3 rethink">
+      <option name="closed" value="true" />
+      <created>1697596094860</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1697596094861</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

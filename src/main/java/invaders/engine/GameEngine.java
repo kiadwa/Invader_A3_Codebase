@@ -7,12 +7,16 @@ import invaders.ConfigReader;
 import invaders.builder.BunkerBuilder;
 import invaders.builder.Director;
 import invaders.builder.EnemyBuilder;
+import invaders.factory.EnemyProjectile;
+import invaders.factory.PlayerProjectile;
 import invaders.factory.Projectile;
 import invaders.gameobject.Bunker;
 import invaders.gameobject.Enemy;
 import invaders.gameobject.GameObject;
 import invaders.entities.Player;
+import invaders.mementoUndo.Caretaker;
 import invaders.mementoUndo.GameEngineMemento;
+import invaders.mementoUndo.GameMemento;
 import invaders.mementoUndo.Originator;
 import invaders.rendering.Renderable;
 import org.json.simple.JSONObject;
@@ -41,6 +45,7 @@ public class GameEngine implements Originator {
 	private int gameWidth;
 	private int gameHeight;
 	private int timer = 45;
+	private Caretaker caretaker;
 
 	public GameEngine(String config){
 		// Read the config here
@@ -132,6 +137,13 @@ public class GameEngine implements Originator {
 		}
 
 	}
+	public void setCaretaker(Caretaker caretaker){
+		this.caretaker = caretaker;
+	}
+	public Caretaker getCaretaker(){
+		return this.caretaker;
+	}
+
 
 	public List<Renderable> getRenderables(){
 		return renderables;
@@ -207,11 +219,115 @@ public class GameEngine implements Originator {
 
 	@Override
 	public GameEngineMemento save() {
-		return null;
+		GameMemento gameMemento = new GameMemento();
+		//saving deep copy of renderables
+		for(Renderable renderable: this.renderables){
+			if(renderable.getRenderableObjectName().equals("Player")){
+				Player player = ((Player) renderable).copy();
+				gameMemento.getGameRenderablesState().add(player);
+			}else if(renderable.getRenderableObjectName().equals("Bunker")){
+				Bunker bunker = ((Bunker) renderable).copy();
+				gameMemento.getGameRenderablesState().add(bunker);
+			}else if(renderable.getRenderableObjectName().equals("Enemy")){
+				Enemy enemy = ((Enemy) renderable).copy();
+				gameMemento.getGameRenderablesState().add(enemy);
+			}else if(renderable.getRenderableObjectName().equals("EnemyProjectile")) {
+				EnemyProjectile projectile = ((EnemyProjectile) renderable).copy();
+				gameMemento.getGameRenderablesState().add(projectile);
+			}
+		}
+		//saving deep copy of GameObjects from the Memento's Renderables list;
+		for(Renderable renderable: gameMemento.getGameRenderablesState()){
+			if(renderable.getRenderableObjectName().equals("Bunker")){
+				gameMemento.getGameObjectsState().add((GameObject) renderable);
+			}else if(renderable.getRenderableObjectName().equals("Enemy")){
+				gameMemento.getGameObjectsState().add((GameObject) renderable);
+			}else if(renderable.getRenderableObjectName().equals("EnemyProjectile")){
+				gameMemento.getGameObjectsState().add((GameObject) renderable);
+			}
+		}
+		//saving deep copy of pending to add renderables
+		for(Renderable renderable: this.pendingToAddRenderable){
+			if(renderable.getRenderableObjectName().equals("Player")){
+				Player player = ((Player) renderable).copy();
+				gameMemento.getPendingToAddRenderables().add(player);
+			}else if(renderable.getRenderableObjectName().equals("Bunker")){
+				Bunker bunker = ((Bunker) renderable).copy();
+				gameMemento.getPendingToAddRenderables().add(bunker);
+			}else if(renderable.getRenderableObjectName().equals("Enemy")){
+				Enemy enemy = ((Enemy) renderable).copy();
+				gameMemento.getPendingToAddRenderables().add(enemy);
+			}else if(renderable.getRenderableObjectName().equals("EnemyProjectile")) {
+				EnemyProjectile projectile = ((EnemyProjectile) renderable).copy();
+				gameMemento.getPendingToAddRenderables().add(projectile);
+			}
+		}
+
+		//saving deep copy of pending to add renderables
+		for(Renderable renderable: this.pendingToRemoveRenderable){
+			if(renderable.getRenderableObjectName().equals("Player")){
+				Player player = ((Player) renderable).copy();
+				gameMemento.getPendingToRemoveRenderables().add(player);
+			}else if(renderable.getRenderableObjectName().equals("Bunker")){
+				Bunker bunker = ((Bunker) renderable).copy();
+				gameMemento.getPendingToRemoveRenderables().add(bunker);
+			}else if(renderable.getRenderableObjectName().equals("Enemy")) {
+				Enemy enemy = ((Enemy) renderable).copy();
+				gameMemento.getPendingToRemoveRenderables().add(enemy);
+			}else if(renderable.getRenderableObjectName().equals("EnemyProjectile")) {
+				EnemyProjectile projectile = ((EnemyProjectile) renderable).copy();
+				gameMemento.getPendingToRemoveRenderables().add(projectile);
+			}
+		}
+		//saving deep a copy of pending to add game objects
+		for(Renderable renderable: gameMemento.getPendingToAddRenderables()) {
+			if(renderable.getRenderableObjectName().equals("Bunker")){
+				gameMemento.getPendingToAddGameObjects().add((GameObject) renderable);
+			}else if(renderable.getRenderableObjectName().equals("Enemy")){
+				gameMemento.getPendingToAddGameObjects().add((GameObject) renderable);
+			}else if(renderable.getRenderableObjectName().equals("EnemyProjectile")){
+				gameMemento.getPendingToAddGameObjects().add((GameObject) renderable);
+			}
+		}
+
+
+
+
+		//saving deep copy of pending to remove game objects
+		for(Renderable renderable: gameMemento.getPendingToRemoveRenderables()){
+			if(renderable.getRenderableObjectName().equals("Bunker")){
+				gameMemento.getPendingToRemoveGameObjects().add((GameObject) renderable);
+			}else if(renderable.getRenderableObjectName().equals("Enemy")){
+				gameMemento.getPendingToRemoveGameObjects().add((GameObject) renderable);
+			}else if(renderable.getRenderableObjectName().equals("EnemyProjectile")){
+				gameMemento.getPendingToRemoveGameObjects().add((GameObject) renderable);
+			}
+		}
+
+		//TODO saving Observer
+
+
+
+		return gameMemento;
 	}
 
 	@Override
 	public void restore(GameEngineMemento memento) {
+		renderables.clear();
+		gameObjects.clear();
+		pendingToRemoveRenderable.clear();
+		pendingToAddRenderable.clear();
+		pendingToAddGameObject.clear();
+		pendingToRemoveGameObject.clear();
+
+
+
+		renderables.addAll(memento.getGameRenderablesState());
+		gameObjects.addAll(memento.getGameObjectsState());
+		pendingToRemoveRenderable.addAll(memento.getPendingToRemoveRenderables());
+		pendingToAddRenderable.addAll(memento.getPendingToAddRenderables());
+		pendingToAddGameObject.addAll(memento.getPendingToAddGameObjects());
+		pendingToRemoveGameObject.addAll(memento.getPendingToRemoveGameObjects());
 
 	}
 }

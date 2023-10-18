@@ -20,8 +20,8 @@ public interface GameEngineMemento {
 
 
     List<GameObject> getGameObjectsState();
-    List<GameObject> getPendingToAddGameObjects(List<GameObject> gameObjects);
-    List<GameObject> getPendingToRemoveGameObjects(List<GameObject> gameObjects);
+    List<GameObject> getPendingToAddGameObjects();
+    List<GameObject> getPendingToRemoveGameObjects();
 
 
 }

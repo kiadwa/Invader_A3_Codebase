@@ -6,6 +6,7 @@ import invaders.factory.Projectile;
 import invaders.factory.ProjectileFactory;
 import invaders.physics.Collider;
 import invaders.physics.Vector2D;
+import invaders.prototype.EnemyPrototype;
 import invaders.rendering.Renderable;
 import invaders.strategy.ProjectileStrategy;
 import javafx.scene.image.Image;
@@ -14,7 +15,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Enemy implements GameObject, Renderable {
+public class Enemy implements GameObject, Renderable, EnemyPrototype {
     private Vector2D position;
     private int lives = 1;
     private Image image;
@@ -143,4 +144,15 @@ public class Enemy implements GameObject, Renderable {
         this.projectileStrategy = projectileStrategy;
     }
 
+    @Override
+    public Enemy copy() {
+        Enemy enemy = new Enemy(this.position);
+        enemy.setImage(this.image);
+        enemy.setLives(this.lives);
+        enemy.setPosition(this.position);
+        enemy.setProjectileStrategy(this.projectileStrategy);
+        enemy.setProjectileImage(this.projectileImage);
+
+        return enemy;
+    }
 }

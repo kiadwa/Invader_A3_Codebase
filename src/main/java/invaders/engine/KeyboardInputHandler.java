@@ -40,6 +40,10 @@ class KeyboardInputHandler {
             return;
         }
         pressedKeys.add(keyEvent.getCode());
+        if(keyEvent.getCode().equals(KeyCode.P)){
+            model.save();
+
+        }
 
         if(keyEvent.getCode().equals(KeyCode.DIGIT1)){
             //TODO Easy mode

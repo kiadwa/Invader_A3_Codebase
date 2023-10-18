@@ -1,5 +1,6 @@
 package invaders.entities;
 
+import invaders.ConfigReader;
 import invaders.factory.PlayerProjectile;
 import invaders.factory.PlayerProjectileFactory;
 import invaders.factory.Projectile;
@@ -7,6 +8,7 @@ import invaders.factory.ProjectileFactory;
 import invaders.physics.Collider;
 import invaders.physics.Moveable;
 import invaders.physics.Vector2D;
+import invaders.prototype.PlayerPrototype;
 import invaders.rendering.Animator;
 import invaders.rendering.Renderable;
 
@@ -16,7 +18,7 @@ import org.json.simple.JSONObject;
 
 import java.io.File;
 
-public class Player implements Moveable, Renderable {
+public class Player implements Moveable, Renderable, PlayerPrototype {
 
     private final Vector2D position;
     private double health;
@@ -26,9 +28,11 @@ public class Player implements Moveable, Renderable {
     private final double height = 20;
     private final Image image;
     private ProjectileFactory playerProjectileFactory = new PlayerProjectileFactory();
+    JSONObject playerInfo;
 
 
     public Player(JSONObject playerInfo){
+        this.playerInfo = playerInfo;
         int x = ((Long)((JSONObject)(playerInfo.get("position"))).get("x")).intValue();
         int y = ((Long)((JSONObject)(playerInfo.get("position"))).get("y")).intValue();
 
@@ -47,6 +51,9 @@ public class Player implements Moveable, Renderable {
     @Override
     public double getHealth() {
         return this.health;
+    }
+    public void setHealth(double health){
+        this.health = health;
     }
 
     @Override
@@ -108,4 +115,13 @@ public class Player implements Moveable, Renderable {
         return "Player";
     }
 
+    @Override
+    public Player copy() {
+        Player player = new Player(this.playerInfo);
+        player.getPosition().setX(this.position.getX());
+        player.getPosition().setY(this.position.getY());
+        player.setHealth(this.getHealth());
+        return player;
+        //Player player = new Player();
+    }
 }

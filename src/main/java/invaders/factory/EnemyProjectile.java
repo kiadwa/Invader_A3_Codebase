@@ -3,10 +3,12 @@ package invaders.factory;
 import invaders.engine.GameEngine;
 import invaders.physics.Collider;
 import invaders.physics.Vector2D;
+import invaders.prototype.EnemyProjectilePrototype;
+import invaders.prototype.EnemyPrototype;
 import invaders.strategy.ProjectileStrategy;
 import javafx.scene.image.Image;
 
-public class EnemyProjectile extends Projectile{
+public class EnemyProjectile extends Projectile implements EnemyProjectilePrototype {
     private ProjectileStrategy strategy;
 
     public EnemyProjectile(Vector2D position, ProjectileStrategy strategy, Image image) {
@@ -26,5 +28,11 @@ public class EnemyProjectile extends Projectile{
     @Override
     public String getRenderableObjectName() {
         return "EnemyProjectile";
+    }
+
+    @Override
+    public EnemyProjectile copy() {
+        EnemyProjectile enemyProjectile = new EnemyProjectile(this.getPosition(),this.strategy,this.getImage());
+        return enemyProjectile;
     }
 }

@@ -4,24 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1406e39c-af8c-4de8-a550-86e2f918d11f" name="Changes" comment="#3 rethink">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/invaders/prototype/BunkerPrototype.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/invaders/prototype/EnemyProjectilePrototype.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/invaders/prototype/PlayerProjectilePrototype.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/invaders/prototype/PlayerPrototype.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/engine/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/engine/GameEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/entities/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/factory/EnemyProjectile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/factory/EnemyProjectile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/factory/PlayerProjectile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/factory/PlayerProjectile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/gameobject/Bunker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/gameobject/Bunker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/gameobject/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/gameobject/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/gameobject/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/gameobject/GameObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/mementoUndo/GameEngineMemento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/mementoUndo/GameEngineMemento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/mementoUndo/GameMemento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/mementoUndo/GameMemento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/prototype/Prototype.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/prototype/EnemyPrototype.java" afterDir="false" />
-    </list>
+    <list default="true" id="1406e39c-af8c-4de8-a550-86e2f918d11f" name="Changes" comment="#4 Undo feature" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -107,7 +90,7 @@
       <workItem from="1697536874873" duration="4000" />
       <workItem from="1697537078601" duration="21000" />
       <workItem from="1697584079346" duration="6038000" />
-      <workItem from="1697621423454" duration="8024000" />
+      <workItem from="1697621423454" duration="9200000" />
     </task>
     <task id="LOCAL-00001" summary="#1 init">
       <option name="closed" value="true" />
@@ -189,7 +172,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697596094861</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="#4 Undo feature">
+      <option name="closed" value="true" />
+      <created>1697631457318</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1697631457318</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,6 +191,7 @@
     <MESSAGE value="#1 add num button events" />
     <MESSAGE value="#2 asdhadauiwhdia so hard" />
     <MESSAGE value="#3 rethink" />
-    <option name="LAST_COMMIT_MESSAGE" value="#3 rethink" />
+    <MESSAGE value="#4 Undo feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="#4 Undo feature" />
   </component>
 </project>

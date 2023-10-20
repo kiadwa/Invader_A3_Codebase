@@ -256,6 +256,8 @@ public class GameEngine implements Subject {
 
 	@Override
 	public void notifyObserver() {
-		this.scoreObserver.update();
+		if(this.scoreObserver != null) {
+			this.scoreObserver.update();
+		}
 	}
 }

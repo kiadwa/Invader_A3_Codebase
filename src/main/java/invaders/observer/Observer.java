@@ -1,5 +1,5 @@
 package invaders.observer;
 
-public interface TimeObserver {
+public interface Observer {
     void update();
 }

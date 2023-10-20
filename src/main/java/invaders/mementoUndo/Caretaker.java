@@ -4,15 +4,14 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Caretaker {
-    private Queue<GameEngineMemento> gameEngineMementos = new LinkedList<>();
+    private  GameEngineMemento gameEngineMementos;
 
     public void addMemento(GameEngineMemento gameEngineMemento){
-        gameEngineMementos.add(gameEngineMemento);
+        gameEngineMementos = gameEngineMemento;
     }
     public GameEngineMemento getMemento(){
-        return gameEngineMementos.remove();
+        return gameEngineMementos;
     }
-    public Queue<GameEngineMemento> getGameEngineMementos(){
-        return this.gameEngineMementos;
-    }
+
+
 }

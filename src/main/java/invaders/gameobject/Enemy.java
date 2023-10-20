@@ -144,6 +144,10 @@ public class Enemy implements GameObject, Renderable, EnemyPrototype {
         this.projectileStrategy = projectileStrategy;
     }
 
+    public invaders.strategy.ProjectileStrategy getProjectileStrategy() {
+        return projectileStrategy;
+    }
+
     @Override
     public Enemy copy() {
         Enemy enemy = new Enemy(this.position);

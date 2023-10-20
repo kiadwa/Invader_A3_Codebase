@@ -5,6 +5,14 @@ import java.util.ArrayList;
 
 import invaders.entities.EntityViewImpl;
 import invaders.entities.SpaceBackground;
+import invaders.observer.ConcreteScoreObs;
+import invaders.observer.ConcreteTimeObs;
+import invaders.observer.Observer;
+import invaders.observer.Subject;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Paint;
+import javafx.scene.text.Font;
 import javafx.util.Duration;
 
 import invaders.entities.EntityView;
@@ -14,7 +22,7 @@ import javafx.animation.Timeline;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 
-public class GameWindow {
+public class GameWindow implements Subject {
 	private final int width;
     private final int height;
 	private Scene scene;
@@ -28,12 +36,13 @@ public class GameWindow {
     private KeyboardInputHandler keyboardInputHandler;
     private boolean diffChanged = false;
     // private static final double VIEWPORT_MARGIN = 280.0;
-
+    private GraphicsContext gc;
+    private ConcreteTimeObs timeObs;
 	public GameWindow(GameEngine model){
         this.model = model;
 		this.width =  model.getGameWidth();
         this.height = model.getGameHeight();
-
+        timeObs = new ConcreteTimeObs();
         pane = new Pane();
         scene = new Scene(pane, width, height);
         this.background = new SpaceBackground(model, pane);
@@ -43,6 +52,9 @@ public class GameWindow {
         scene.setOnKeyPressed(keyboardInputHandler::handlePressed);
         scene.setOnKeyReleased(keyboardInputHandler::handleReleased);
 
+        Canvas canvas = new Canvas(width, height);
+        gc = canvas.getGraphicsContext2D();
+        pane.getChildren().add(canvas);
     }
 
 	public void run() {
@@ -82,12 +94,33 @@ public class GameWindow {
             this.diffChanged = false;
         }
     }
+    public void printScoreBoard(){
+        gc.setFill(Paint.valueOf("WHITE"));
+        Font font = new Font("Ariel", 40);
+        gc.setFont(font);
+        gc.fillText(model.getObservers().toString(),
+                300,
+                40, 100);
+    }
+    public void printClock(){
+        gc.setFill(Paint.valueOf("WHITE"));
+        Font font = new Font("Ariel", 40);
+        gc.setFont(font);
+        gc.fillText(this.timeObs.toString(),500,40,100);
+    }
 
 
     private void draw(){
+
+        this.timeObs.update();
+        gc.clearRect(0, 0, width, height);
         model.update();
         detectModeChange();
         revertModeChange();
+
+        printScoreBoard();
+        printClock();
+
         List<Renderable> renderables = model.getRenderables();
         for (Renderable entity : renderables) {
             boolean notFound = true;
@@ -138,5 +171,20 @@ public class GameWindow {
 
 	public Scene getScene() {
         return scene;
+    }
+
+    @Override
+    public void addObserver(Observer obs) {
+        this.timeObs = (ConcreteTimeObs) obs;
+    }
+
+    @Override
+    public void removeObserver(Observer obs) {
+        this.timeObs = null;
+    }
+
+    @Override
+    public void notifyObserver() {
+        this.timeObs.update();
     }
 }

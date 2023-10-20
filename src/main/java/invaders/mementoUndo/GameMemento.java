@@ -3,16 +3,17 @@ package invaders.mementoUndo;
 import invaders.gameobject.GameObject;
 import invaders.rendering.Renderable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GameMemento implements GameEngineMemento{
-    private List<Renderable> renderables;
-    private List<Renderable> pendingToAddRenderables;
-    private List<Renderable> pendingToRemoveRenderables;
+    private List<Renderable> renderables = new ArrayList<>();
+    private List<Renderable> pendingToAddRenderables  = new ArrayList<>();
+    private List<Renderable> pendingToRemoveRenderables  = new ArrayList<>();
 
-    private List<GameObject> gameObjects;
-    private List<GameObject> pendingToAddGameObjects;
-    private List<GameObject> pendingToRemoveGameObjects;
+    private List<GameObject> gameObjects  = new ArrayList<>();
+    private List<GameObject> pendingToAddGameObjects  = new ArrayList<>();
+    private List<GameObject> pendingToRemoveGameObjects  = new ArrayList<>();
 
     @Override
     public void setGameRenderablesState(List<Renderable> renderables) {

@@ -4,10 +4,12 @@ import invaders.physics.Collider;
 import invaders.physics.Vector2D;
 import javafx.scene.image.Image;
 
+import java.io.Serializable;
+
 /**
  * Represents something that can be rendered
  */
-public interface Renderable {
+public interface Renderable extends Serializable {
 
     public Image getImage();
 

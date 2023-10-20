@@ -15,6 +15,9 @@ public class EnemyProjectile extends Projectile implements EnemyProjectileProtot
         super(position,image);
         this.strategy = strategy;
     }
+    public ProjectileStrategy getStrategy(){
+        return this.strategy;
+    }
 
     @Override
     public void update(GameEngine model) {

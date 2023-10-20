@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Set;
 
 class KeyboardInputHandler {
-    private final GameEngine model;
+    private GameEngine model;
     private boolean left = false;
     private boolean right = false;
     private boolean easyMode = true;
@@ -40,9 +40,12 @@ class KeyboardInputHandler {
             return;
         }
         pressedKeys.add(keyEvent.getCode());
-        if(keyEvent.getCode().equals(KeyCode.P)){
-            model.save();
+        if(keyEvent.getCode().equals(KeyCode.S)){
+            System.out.println("Save");
+        }
+        if(keyEvent.getCode().equals(KeyCode.R)){
 
+           System.out.println("Restore");
         }
 
         if(keyEvent.getCode().equals(KeyCode.DIGIT1)){

@@ -1,15 +1,17 @@
 package invaders.gameobject;
 
 import invaders.engine.GameEngine;
-import invaders.physics.Collider;
 import invaders.physics.Vector2D;
-import invaders.prototype.BunkerPrototype;
 import invaders.rendering.Renderable;
 import invaders.state.BunkerState;
 import invaders.state.GreenState;
+import invaders.state.RedState;
+import invaders.state.YellowState;
 import javafx.scene.image.Image;
 
-public class Bunker implements GameObject, Renderable, BunkerPrototype {
+import java.io.File;
+
+public class Bunker implements GameObject, Renderable {
     private Vector2D position;
     private double width;
     private double height;
@@ -65,6 +67,26 @@ public class Bunker implements GameObject, Renderable, BunkerPrototype {
     }
 
     @Override
+    public Renderable copyR() {
+        Bunker bunker = new Bunker();
+
+        if(this.getState() instanceof GreenState){
+            bunker.setState(new GreenState(bunker));
+            bunker.setImage(new Image(new File("src/main/resources/bunkerGreen.png").toURI().toString(), width, height, true, true));
+        }else if(this.getState() instanceof YellowState){
+            bunker.setState(new YellowState(bunker));
+            bunker.setImage(new Image(new File("src/main/resources/bunkerYellow.png").toURI().toString(), width, height, true, true));
+        }else{
+            bunker.setState(new RedState(bunker));
+            bunker.setImage(new Image(new File("src/main/resources/bunkerRed.png").toURI().toString(), width, height, true, true));
+        }
+        bunker.setPosition(new Vector2D(this.position.getX(),this.position.getY()));
+        bunker.setWidth((int) this.width);
+        bunker.setHeight((int) this.getHeight());
+        return bunker;
+    }
+
+    @Override
 	public boolean isAlive(){
 	    return this.lives > 0;
 	}
@@ -108,17 +130,6 @@ public class Bunker implements GameObject, Renderable, BunkerPrototype {
         this.state = state;
     }
 
-    @Override
-    public Bunker copy() {
-        Bunker bunker = new Bunker();
 
-        bunker.setHeight((int) this.height);
-        bunker.setWidth((int) this.width);
-        bunker.setState(this.state);
-        bunker.setImage(this.image);
-        bunker.setLives(this.lives);
-        bunker.setPosition(this.position);
-        return bunker;
 
-    }
 }

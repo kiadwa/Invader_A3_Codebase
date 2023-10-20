@@ -1,14 +1,16 @@
 package invaders.factory;
 
 import invaders.engine.GameEngine;
+import invaders.gameobject.GameObject;
 import invaders.physics.Vector2D;
-import invaders.prototype.PlayerProjectilePrototype;
+import invaders.rendering.Renderable;
+import invaders.strategy.NormalProjectileStrategy;
 import invaders.strategy.ProjectileStrategy;
 import javafx.scene.image.Image;
 
 import java.io.File;
 
-public class PlayerProjectile extends Projectile implements PlayerProjectilePrototype {
+public class PlayerProjectile extends Projectile  {
     private ProjectileStrategy strategy;
 
     public PlayerProjectile(Vector2D position, ProjectileStrategy strategy) {
@@ -29,8 +31,12 @@ public class PlayerProjectile extends Projectile implements PlayerProjectileProt
     }
 
     @Override
-    public PlayerProjectile copy() {
-        PlayerProjectile projectile = new PlayerProjectile(this.getPosition(),this.strategy);
-        return projectile;
+    public Renderable copyR() {
+        Vector2D vector2D = new Vector2D(this.getPosition().getX(),this.getPosition().getY());
+        ProjectileStrategy projectileStrategy = new NormalProjectileStrategy();
+        return new PlayerProjectile(vector2D,projectileStrategy);
     }
+
+
+
 }

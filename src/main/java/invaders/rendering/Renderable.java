@@ -2,6 +2,7 @@ package invaders.rendering;
 
 import invaders.physics.Collider;
 import invaders.physics.Vector2D;
+import invaders.prototype.RenderablePrototype;
 import javafx.scene.image.Image;
 
 import java.io.Serializable;
@@ -9,7 +10,7 @@ import java.io.Serializable;
 /**
  * Represents something that can be rendered
  */
-public interface Renderable extends Serializable {
+public interface Renderable extends RenderablePrototype {
 
     public Image getImage();
 
@@ -55,4 +56,8 @@ public interface Renderable extends Serializable {
     }
 
     public String getRenderableObjectName();
+    @Override
+    Renderable copyR();
+
+
 }

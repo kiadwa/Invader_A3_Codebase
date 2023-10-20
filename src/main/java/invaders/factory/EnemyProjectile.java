@@ -1,14 +1,17 @@
 package invaders.factory;
 
 import invaders.engine.GameEngine;
-import invaders.physics.Collider;
+import invaders.gameobject.GameObject;
 import invaders.physics.Vector2D;
-import invaders.prototype.EnemyProjectilePrototype;
-import invaders.prototype.EnemyPrototype;
+import invaders.rendering.Renderable;
+import invaders.strategy.FastProjectileStrategy;
 import invaders.strategy.ProjectileStrategy;
+import invaders.strategy.SlowProjectileStrategy;
 import javafx.scene.image.Image;
 
-public class EnemyProjectile extends Projectile implements EnemyProjectilePrototype {
+import java.io.File;
+
+public class EnemyProjectile extends Projectile  {
     private ProjectileStrategy strategy;
 
     public EnemyProjectile(Vector2D position, ProjectileStrategy strategy, Image image) {
@@ -34,8 +37,21 @@ public class EnemyProjectile extends Projectile implements EnemyProjectileProtot
     }
 
     @Override
-    public EnemyProjectile copy() {
-        EnemyProjectile enemyProjectile = new EnemyProjectile(this.getPosition(),this.strategy,this.getImage());
+    public Renderable copyR() {
+        Vector2D vector2D = new Vector2D(this.getPosition().getX(),this.getPosition().getY());
+        Image image;
+        ProjectileStrategy projectileStrategy;
+        if(this.strategy instanceof SlowProjectileStrategy) {
+            image = new Image(new File("src/main/resources/alien_shot_slow.png").toURI().toString(), 10, 10, true, true);
+            projectileStrategy = new SlowProjectileStrategy();
+        }
+        else{
+            image = new Image(new File("src/main/resources/alien_shot_fast.png").toURI().toString(), 10, 10, true, true);
+            projectileStrategy = new FastProjectileStrategy();}
+        Renderable enemyProjectile = new EnemyProjectile(vector2D,projectileStrategy,image);
         return enemyProjectile;
     }
+
+
+
 }

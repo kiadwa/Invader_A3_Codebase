@@ -65,4 +65,9 @@ public class SpaceBackground implements Renderable {
 	public String getRenderableObjectName() {
 		return "background";
 	}
+
+	@Override
+	public Renderable copyR() {
+		return null;
+	}
 }

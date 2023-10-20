@@ -48,6 +48,10 @@ public class GameEngine implements Subject {
 	private int gameHeight;
 	private int timer = 45;
 	private Caretaker caretaker;
+	private GameEngineMemento gameMemento;
+	private boolean restore;
+	private boolean save;
+
 
 	public GameEngine(String config){
 		// Read the config here
@@ -172,6 +176,8 @@ public class GameEngine implements Subject {
 	public List<Renderable> getRenderables(){
 		return renderables;
 	}
+	public void setRenderables(List<Renderable> renderables){this.renderables = renderables;}
+	public void setGameObjects(List<GameObject> gameObjects) {this.gameObjects = gameObjects;}
 
 	public List<GameObject> getGameObjects() {
 		return gameObjects;
@@ -229,6 +235,10 @@ public class GameEngine implements Subject {
 		}
 	}
 
+	public GameEngineMemento getMemento(){
+		return this.gameMemento;
+	}
+
 	public int getGameWidth() {
 		return gameWidth;
 	}
@@ -239,6 +249,9 @@ public class GameEngine implements Subject {
 
 	public Player getPlayer() {
 		return player;
+	}
+	public void setPlayer(Player player){
+		this.player = player;
 	}
 	public ConcreteScoreObs getObservers(){
 		return this.scoreObserver;
@@ -256,6 +269,13 @@ public class GameEngine implements Subject {
 
 	@Override
 	public void notifyObserver() {
-		this.scoreObserver.update();
+		if(this.scoreObserver != null) {
+			this.scoreObserver.update();
+		}
 	}
+
+
+
+
+
 }

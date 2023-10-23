@@ -4,33 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1406e39c-af8c-4de8-a550-86e2f918d11f" name="Changes" comment="#6 &#10;TODO Difficulty&#10;Undo and cheat">
-      <change afterPath="$PROJECT_DIR$/src/main/java/invaders/prototype/EntvPrototype.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/invaders/prototype/GameObjectPrototype.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/invaders/prototype/RenderablePrototype.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/engine/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/engine/GameEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/engine/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/engine/GameWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/engine/KeyboardInputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/engine/KeyboardInputHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/entities/EntityView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/entities/EntityView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/entities/EntityViewImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/entities/EntityViewImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/entities/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/entities/SpaceBackground.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/entities/SpaceBackground.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/factory/EnemyProjectile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/factory/EnemyProjectile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/factory/PlayerProjectile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/factory/PlayerProjectile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/gameobject/Bunker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/gameobject/Bunker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/gameobject/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/gameobject/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/gameobject/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/gameobject/GameObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/mementoUndo/GameEngineMemento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/mementoUndo/GameEngineMemento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/mementoUndo/GameMemento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/mementoUndo/GameMemento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/prototype/BunkerPrototype.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/prototype/EnemyProjectilePrototype.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/prototype/EnemyPrototype.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/prototype/GameEnginePrototype.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/prototype/PlayerProjectilePrototype.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/prototype/PlayerPrototype.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/rendering/Renderable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/rendering/Renderable.java" afterDir="false" />
+    <list default="true" id="1406e39c-af8c-4de8-a550-86e2f918d11f" name="Changes" comment="#6&#10;TODO Difficulty&#10;Undo and cheat">
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/engine/GameEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/invaders/engine/GameEngine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/engine/GameWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/invaders/engine/GameWindow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/engine/KeyboardInputHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/invaders/engine/KeyboardInputHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/entities/EntityView.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/invaders/entities/EntityView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/entities/EntityViewImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/invaders/entities/EntityViewImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/entities/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/invaders/entities/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/entities/SpaceBackground.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/invaders/entities/SpaceBackground.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/factory/EnemyProjectile.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/invaders/factory/EnemyProjectile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/factory/PlayerProjectile.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/invaders/factory/PlayerProjectile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/gameobject/Bunker.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/invaders/gameobject/Bunker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/gameobject/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/invaders/gameobject/Enemy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/gameobject/GameObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/invaders/gameobject/GameObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/mementoUndo/GameEngineMemento.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/invaders/mementoUndo/GameEngineMemento.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/mementoUndo/GameMemento.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/invaders/mementoUndo/GameMemento.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/prototype/BunkerPrototype.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/prototype/EnemyProjectilePrototype.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/prototype/EnemyPrototype.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/prototype/GameEnginePrototype.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/prototype/PlayerProjectilePrototype.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/prototype/PlayerPrototype.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/rendering/Renderable$Layer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/invaders/rendering/Renderable$Layer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/rendering/Renderable.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/invaders/rendering/Renderable.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/GameWindow.class.uniqueId1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +131,7 @@
       <workItem from="1697705388691" duration="22887000" />
       <workItem from="1697887839174" duration="1744000" />
       <workItem from="1698030028562" duration="3000" />
-      <workItem from="1698050274763" duration="16160000" />
+      <workItem from="1698050274763" duration="16814000" />
     </task>
     <task id="LOCAL-00001" summary="#1 init">
       <option name="closed" value="true" />
@@ -241,7 +245,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697780434074</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="#6&#10;TODO Difficulty&#10;Undo and cheat">
+      <option name="closed" value="true" />
+      <created>1698069280226</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1698069280226</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,6 +290,8 @@
     <MESSAGE value="#4 Undo feature" />
     <MESSAGE value="#5 Time and Score, &#10;TODO Difficulty&#10;Undo and cheat" />
     <MESSAGE value="#6 &#10;TODO Difficulty&#10;Undo and cheat" />
-    <option name="LAST_COMMIT_MESSAGE" value="#6 &#10;TODO Difficulty&#10;Undo and cheat" />
+    <MESSAGE value="#6 &#10;Attempt Undo" />
+    <MESSAGE value="#6&#10;TODO Difficulty&#10;Undo and cheat" />
+    <option name="LAST_COMMIT_MESSAGE" value="#6&#10;TODO Difficulty&#10;Undo and cheat" />
   </component>
 </project>

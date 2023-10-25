@@ -1,6 +1,7 @@
 package invaders.gameobject;
 
 import invaders.engine.GameEngine;
+import invaders.factory.EnemyProjectile;
 import invaders.factory.EnemyProjectileFactory;
 import invaders.factory.Projectile;
 import invaders.factory.ProjectileFactory;
@@ -13,6 +14,7 @@ import javafx.scene.image.Image;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Enemy implements GameObject, Renderable {
@@ -141,15 +143,33 @@ public class Enemy implements GameObject, Renderable {
     public void setProjectileFactory(ProjectileFactory projectileFactory){
         this.projectileFactory = projectileFactory;
     }
-
+    public void setRandom(Random random){this.random = random;}
+    public void setEnemyProjectile(ArrayList<Projectile> enemyProjectile){
+        this.enemyProjectile = enemyProjectile;
+    }
+    public void setPendingToDeleteEnemyProjectile(ArrayList<Projectile> pendingToDeleteEnemyProjectile){
+        this.pendingToDeleteEnemyProjectile = pendingToDeleteEnemyProjectile;
+    }
     @Override
     public Renderable copyR() {
+        ArrayList<Projectile> enemyProjectile = new ArrayList<>();
+        ArrayList<Projectile> pendingToDeleteEnemyProjectile = new ArrayList<>();
+        for(Projectile projectile: this.enemyProjectile){
+            enemyProjectile.add((Projectile) projectile.copyR());
+        }
+        for(Projectile projectile: this.pendingToDeleteEnemyProjectile){
+            pendingToDeleteEnemyProjectile.add((Projectile) projectile.copyR());
+        }
         Enemy enemy = new Enemy(new Vector2D(this.position.getX(),this.position.getY()));
         int xvel = this.xVel;
         int lives1 = this.lives;
+
         enemy.setLives(lives1);
         enemy.setxVel(xVel);
         enemy.setProjectileFactory(new EnemyProjectileFactory());
+        //enemy.setEnemyProjectile(enemyProjectile);
+        //enemy.setPendingToDeleteEnemyProjectile(pendingToDeleteEnemyProjectile);
+        //enemy.setRandom(new Random());
         if(this.projectileStrategy instanceof SlowProjectileStrategy){
             enemy.setProjectileStrategy(new SlowProjectileStrategy());
             enemy.setImage(new Image(new File("src/main/resources/slow_alien.png").toURI().toString(), 20, 20, true, true));
@@ -161,6 +181,7 @@ public class Enemy implements GameObject, Renderable {
         }
 
         return enemy;
+
     }
 
     @Override

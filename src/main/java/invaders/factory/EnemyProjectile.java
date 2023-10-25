@@ -47,9 +47,9 @@ public class EnemyProjectile extends Projectile  {
         }
         else{
             image = new Image(new File("src/main/resources/alien_shot_fast.png").toURI().toString(), 10, 10, true, true);
-            projectileStrategy = new FastProjectileStrategy();}
-        Renderable enemyProjectile = new EnemyProjectile(vector2D,projectileStrategy,image);
-        return enemyProjectile;
+            projectileStrategy = new FastProjectileStrategy();
+        }
+        return new EnemyProjectile(vector2D,projectileStrategy,image);
     }
 
 

@@ -121,7 +121,8 @@ public class GameWindow implements Subject, Originator {
 
 
     private void draw(){
-
+       // System.out.println(entityViews.size());
+        System.out.println(this.model.getPlayer() != null);
         this.timeObs.update();
         gc.clearRect(0, 0, width, height);
         model.update();
@@ -216,8 +217,14 @@ public class GameWindow implements Subject, Originator {
         ArrayList<Renderable> renderableMemento = new ArrayList<>();
         ArrayList<GameObject> gameObjectMemento = new ArrayList<>();
         //ArrayList<EntityView> entityViewsMemento = new ArrayList<>();
+        Player playerCopy = null;
         for(Renderable renderable: model.getRenderables()){
+
             Renderable copyRenderable = renderable.copyR();
+            if(copyRenderable.getRenderableObjectName().equals("Player")){
+                renderableMemento.add(copyRenderable);
+                playerCopy = (Player) copyRenderable;
+            }
             renderableMemento.add(copyRenderable);
             //entityViewsMemento.add(new EntityViewImpl(renderable));
             if(copyRenderable.getRenderableObjectName().equals("Enemy")){
@@ -230,8 +237,8 @@ public class GameWindow implements Subject, Originator {
                 gameObjectMemento.add((PlayerProjectile) copyRenderable);
             }
         }
-        gameMemento.setPlayer((Player)model.getPlayer().copyR());
-        //gameMemento.setEntityViews(entityViewsMemento);
+        
+        gameMemento.setPlayer(playerCopy);
         gameMemento.setGameGameObjectsState(gameObjectMemento);
         gameMemento.setGameRenderablesState(renderableMemento);
 
@@ -267,9 +274,22 @@ public class GameWindow implements Subject, Originator {
 
     @Override
     public void restore(GameEngineMemento memento) {
+        //need to use matchesEntity() to remove old objects from entityview
+        for(Renderable renderable: this.model.getRenderables()){
+            for(EntityView entityView: this.entityViews){
+                if(entityView.matchesEntity(renderable)){
+                    this.entityViews.remove(entityView);
+                    this.pane.getChildren().remove(entityView.getNode());
+                    break;
+                }
+            }
+        }
         this.model.setRenderables(memento.getGameRenderablesState());
         this.model.setGameObjects(memento.getGameObjectsState());
         //this.entityViews = memento.getEntityViews();
         this.model.setPlayer(memento.getPlayer());
+        this.model.getPendingToAddGameObject().clear();
+        this.model.getPendingToAddRenderable().clear();
+        //System.out.println(this.pane.getChildren().size());
     }
 }

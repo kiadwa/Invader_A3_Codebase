@@ -216,10 +216,12 @@ public class GameEngine implements Subject {
 
 	public boolean shootPressed(){
 		if(timer>45 && player.isAlive()){
+
 			Projectile projectile = player.shoot();
 			gameObjects.add(projectile);
 			renderables.add(projectile);
 			timer=0;
+			System.out.println("Shooting");
 			return true;
 		}
 		return false;

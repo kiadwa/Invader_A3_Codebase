@@ -1,5 +1,6 @@
 package invaders.entities;
 
+import invaders.ConfigReader;
 import invaders.factory.PlayerProjectileFactory;
 import invaders.factory.Projectile;
 import invaders.factory.ProjectileFactory;
@@ -118,9 +119,11 @@ public class Player implements Moveable, Renderable {
 
     @Override
     public Renderable copyR() {
-        Player player = new Player(playerInfo);
+        Vector2D vector2D = new Vector2D(this.position.getX(),this.position.getY());
+        Player player = new Player(ConfigReader.getPlayerInfo());
         player.setHealth(this.getHealth());
         player.setPlayerProjectileFactory(new PlayerProjectileFactory());
+        player.setPosition(vector2D);
         return player;
     }
 

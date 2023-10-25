@@ -83,6 +83,7 @@ public class Bunker implements GameObject, Renderable {
         bunker.setPosition(new Vector2D(this.position.getX(),this.position.getY()));
         bunker.setWidth((int) this.width);
         bunker.setHeight((int) this.getHeight());
+        bunker.setLives(this.lives);
         return bunker;
     }
 

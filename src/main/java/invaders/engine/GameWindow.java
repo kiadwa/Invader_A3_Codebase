@@ -4,20 +4,17 @@ import java.util.List;
 import java.util.ArrayList;
 
 import invaders.entities.EntityViewImpl;
-import invaders.entities.Player;
 import invaders.entities.SpaceBackground;
 import invaders.factory.EnemyProjectile;
 import invaders.factory.PlayerProjectile;
 import invaders.gameobject.Bunker;
 import invaders.gameobject.Enemy;
 import invaders.gameobject.GameObject;
-import invaders.mementoUndo.GameEngineMemento;
-import invaders.mementoUndo.GameMemento;
-import invaders.mementoUndo.Originator;
-import invaders.observer.ConcreteScoreObs;
+import invaders.mementoUndo.*;
 import invaders.observer.ConcreteTimeObs;
 import invaders.observer.Observer;
 import invaders.observer.Subject;
+import invaders.physics.Vector2D;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Paint;
@@ -47,12 +44,16 @@ public class GameWindow implements Subject, Originator {
     // private static final double VIEWPORT_MARGIN = 280.0;
     private GraphicsContext gc;
     private ConcreteTimeObs timeObs;
-    private GameEngineMemento gameEngineMemento;
+    Caretaker caretaker = new Caretaker();
 	public GameWindow(GameEngine model){
         this.model = model;
 		this.width =  model.getGameWidth();
         this.height = model.getGameHeight();
+
+
         timeObs = new ConcreteTimeObs();
+
+
         pane = new Pane();
         scene = new Scene(pane, width, height);
         this.background = new SpaceBackground(model, pane);
@@ -122,7 +123,6 @@ public class GameWindow implements Subject, Originator {
 
     private void draw(){
        // System.out.println(entityViews.size());
-        System.out.println(this.model.getPlayer() != null);
         this.timeObs.update();
         gc.clearRect(0, 0, width, height);
         model.update();
@@ -131,16 +131,20 @@ public class GameWindow implements Subject, Originator {
 
         printScoreBoard();
         printClock();
+
+
         if(this.keyboardInputHandler.isSaving()){
-            this.gameEngineMemento = this.save();
+            this.caretaker.setGameMementos(this.save());
             this.keyboardInputHandler.setSaving(false);
         }
         if(this.keyboardInputHandler.isRestoring()){
-            if(this.gameEngineMemento != null){
-                this.restore(gameEngineMemento);
+            if(this.caretaker.getGameMementos() != null){
+                this.restore(caretaker.getGameMementos());
                 this.keyboardInputHandler.setRestoring(false);
             }
         }
+
+
 
         List<Renderable> renderables = model.getRenderables();
         for (Renderable entity : renderables) {
@@ -212,68 +216,47 @@ public class GameWindow implements Subject, Originator {
     }
 
     @Override
-    public GameEngineMemento save() {
+    public GameMemento save() {
         GameMemento gameMemento = new GameMemento();
+
         ArrayList<Renderable> renderableMemento = new ArrayList<>();
         ArrayList<GameObject> gameObjectMemento = new ArrayList<>();
-        //ArrayList<EntityView> entityViewsMemento = new ArrayList<>();
-        Player playerCopy = null;
-        for(Renderable renderable: model.getRenderables()){
-
-            Renderable copyRenderable = renderable.copyR();
-            if(copyRenderable.getRenderableObjectName().equals("Player")){
+        for(Renderable renderable: model.getRenderables()) {
+            if (!renderable.getRenderableObjectName().equals("Player")) {
+                Renderable copyRenderable = renderable.copyR();
                 renderableMemento.add(copyRenderable);
-                playerCopy = (Player) copyRenderable;
-            }
-            renderableMemento.add(copyRenderable);
-            //entityViewsMemento.add(new EntityViewImpl(renderable));
-            if(copyRenderable.getRenderableObjectName().equals("Enemy")){
-                gameObjectMemento.add((Enemy)copyRenderable);
-            }else if(copyRenderable.getRenderableObjectName().equals("Bunker")){
-                gameObjectMemento.add((Bunker) copyRenderable);
-            }else if(copyRenderable.getRenderableObjectName().equals("EnemyProjectile")){
-                gameObjectMemento.add((EnemyProjectile) copyRenderable);
-            }else if(copyRenderable.getRenderableObjectName().equals("PlayerProjectile")){
-                gameObjectMemento.add((PlayerProjectile) copyRenderable);
+                //entityViewsMemento.add(new EntityViewImpl(renderable));
+                if (copyRenderable.getRenderableObjectName().equals("Enemy")) {
+                    gameObjectMemento.add((Enemy) copyRenderable);
+                } else if (copyRenderable.getRenderableObjectName().equals("Bunker")) {
+                    gameObjectMemento.add((Bunker) copyRenderable);
+                } else if (copyRenderable.getRenderableObjectName().equals("EnemyProjectile")) {
+                    gameObjectMemento.add((EnemyProjectile) copyRenderable);
+                } else if (copyRenderable.getRenderableObjectName().equals("PlayerProjectile")) {
+                    gameObjectMemento.add((PlayerProjectile) copyRenderable);
+                }
             }
         }
-        
-        gameMemento.setPlayer(playerCopy);
+        renderableMemento.add(this.model.getPlayer());
+
+
+        PlayerMemento playerMemento = new PlayerMemento();
+        playerMemento.setPosition(new Vector2D(this.model.getPlayer().getPosition().getX(),this.model.getPlayer().getPosition().getY()));
+        playerMemento.setHealth(this.model.getPlayer().getHealth());
+
+        TimeObserverMemento timeObserverMemento = new TimeObserverMemento(this.timeObs.getMinute(),this.timeObs.getSecond(),this.timeObs.getMillis());
+        ScoreObserverMemento scoreObserverMemento = new ScoreObserverMemento(this.model.getObservers().getTotalScore());
+
         gameMemento.setGameGameObjectsState(gameObjectMemento);
         gameMemento.setGameRenderablesState(renderableMemento);
-
-        System.out.println("Org renderable size " + model.getRenderables().size());
-        int cntEnemy = 0;
-        int cntEnemyProjectile = 0;
-        int cntBunker = 0;
-        int cntPlayer = 0;
-        int cntPlayerProjectile = 0;
-        for(Renderable renderable: model.getRenderables()){
-            if(renderable.getRenderableObjectName().equals("Enemy")){
-                cntEnemy++;
-            }else if(renderable.getRenderableObjectName().equals("EnemyProjectile")){
-                cntEnemyProjectile++;
-            }else if(renderable.getRenderableObjectName().equals("Bunker")){
-                cntBunker ++;
-            }else if(renderable.getRenderableObjectName().equals("Player")){
-                cntPlayer++;
-            }else if (renderable.getRenderableObjectName().equals("PlayerProjectile")){
-                cntPlayerProjectile++;
-            }
-        }
-        System.out.println("Enemy "+ cntEnemy +" EnemyProj " + cntEnemyProjectile + " Bunker "+ cntBunker +" cnt Player "+ cntPlayer + " cnt Player Projectile "+ cntPlayerProjectile);
-
-        System.out.println("Org game object size " + model.getGameObjects().size());
-
-        System.out.println("Memento ren size " + gameMemento.getGameRenderablesState().size() );
-        System.out.println("Memento go size " + gameMemento.getGameObjectsState().size() );
-        System.out.println("Mement Ent V size " + gameMemento.getEntityViews().size());
-
+        gameMemento.setPlayerMemento(playerMemento);
+        gameMemento.setTimeObserverMemento(timeObserverMemento);
+        gameMemento.setScoreObserverMemento(scoreObserverMemento);
         return gameMemento;
     }
 
     @Override
-    public void restore(GameEngineMemento memento) {
+    public void restore(GameMemento memento) {
         //need to use matchesEntity() to remove old objects from entityview
         for(Renderable renderable: this.model.getRenderables()){
             for(EntityView entityView: this.entityViews){
@@ -284,12 +267,15 @@ public class GameWindow implements Subject, Originator {
                 }
             }
         }
+        this.model.getPlayer().setPosition(memento.getPlayerMemento().getPosition());
+        this.model.getPlayer().setHealth(memento.getPlayerMemento().getHealth());
         this.model.setRenderables(memento.getGameRenderablesState());
         this.model.setGameObjects(memento.getGameObjectsState());
-        //this.entityViews = memento.getEntityViews();
-        this.model.setPlayer(memento.getPlayer());
         this.model.getPendingToAddGameObject().clear();
         this.model.getPendingToAddRenderable().clear();
-        //System.out.println(this.pane.getChildren().size());
+        this.timeObs.setMillis(caretaker.getGameMementos().getTimeObserverMemento().getMillis());
+        this.timeObs.setMinute(caretaker.getGameMementos().getTimeObserverMemento().getMinute());
+        this.timeObs.setSecond(caretaker.getGameMementos().getTimeObserverMemento().getSecond());
+        this.model.getObservers().setTotalScore(caretaker.getGameMementos().getScoreObserverMemento().getScore());
     }
 }

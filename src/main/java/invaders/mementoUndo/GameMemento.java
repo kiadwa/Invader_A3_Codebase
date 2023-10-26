@@ -1,52 +1,50 @@
 package invaders.mementoUndo;
 
-import invaders.entities.EntityView;
-import invaders.entities.Player;
 import invaders.gameobject.GameObject;
 import invaders.rendering.Renderable;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameMemento implements GameEngineMemento{
+public class GameMemento {
     private List<Renderable> renderables = new ArrayList<>();
     private List<GameObject> gameObjects  = new ArrayList<>();
-    private List<EntityView> entityViews = new ArrayList<>();
-    private Player player;
+    private PlayerMemento playerMemento;
+    private ScoreObserverMemento scoreObserverMemento;
+    private TimeObserverMemento timeObserverMemento;
 
-    @Override
-    public void setEntityViews(List<EntityView> entityViews){
-        this.entityViews = entityViews;
+    public void setTimeObserverMemento(TimeObserverMemento timeObserverMemento){
+        this.timeObserverMemento = timeObserverMemento;
     }
-    @Override
-    public List<EntityView> getEntityViews(){
-        return this.entityViews;
+    public TimeObserverMemento getTimeObserverMemento(){
+        return this.timeObserverMemento;
     }
 
-    @Override
+    public ScoreObserverMemento getScoreObserverMemento() {
+        return scoreObserverMemento;
+    }
+
+    public void setScoreObserverMemento(ScoreObserverMemento scoreObserverMemento){
+        this.scoreObserverMemento = scoreObserverMemento;
+    }
+
     public void setGameRenderablesState(List<Renderable> renderables) {
         this.renderables = renderables;
     }
-    @Override
     public void setGameGameObjectsState(List<GameObject> gameObjects) {
         this.gameObjects = gameObjects;
     }
 
-    @Override
-    public void setPlayer(Player player) {
-        this.player = player;
+    public void setPlayerMemento(PlayerMemento playerMemento){
+        this.playerMemento = playerMemento;
+    }
+    public PlayerMemento getPlayerMemento(){
+        return this.playerMemento;
     }
 
-    @Override
-    public Player getPlayer() {
-        return this.player;
-    }
-
-    @Override
     public List<Renderable> getGameRenderablesState() {
         return this.renderables;
     }
-    @Override
     public List<GameObject> getGameObjectsState() {
         return this.gameObjects;
     }

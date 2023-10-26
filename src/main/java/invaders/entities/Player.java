@@ -119,12 +119,16 @@ public class Player implements Moveable, Renderable {
 
     @Override
     public Renderable copyR() {
+        /*
         Vector2D vector2D = new Vector2D(this.position.getX(),this.position.getY());
         Player player = new Player(ConfigReader.getPlayerInfo());
         player.setHealth(this.getHealth());
         player.setPlayerProjectileFactory(new PlayerProjectileFactory());
         player.setPosition(vector2D);
         return player;
+
+         */
+        return null;
     }
 
 

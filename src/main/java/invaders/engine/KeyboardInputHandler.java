@@ -42,10 +42,7 @@ class KeyboardInputHandler {
             return;
         }
         pressedKeys.add(keyEvent.getCode());
-        if(keyEvent.getCode().equals(KeyCode.S)){
-            this.setSaving(true);
 
-        }
         if(keyEvent.getCode().equals(KeyCode.R)){
             this.setRestoring(true);
 
@@ -77,6 +74,7 @@ class KeyboardInputHandler {
         }
 
         if (keyEvent.getCode().equals(KeyCode.SPACE)) {
+            this.setSaving(true);
             if (model.shootPressed()) {
                 MediaPlayer shoot = sounds.get("shoot");
                 shoot.stop();

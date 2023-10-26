@@ -7,7 +7,6 @@ import invaders.ConfigReader;
 import invaders.builder.BunkerBuilder;
 import invaders.builder.Director;
 import invaders.builder.EnemyBuilder;
-import invaders.factory.EnemyProjectile;
 import invaders.factory.PlayerProjectile;
 import invaders.factory.Projectile;
 import invaders.gameobject.Bunker;
@@ -15,11 +14,8 @@ import invaders.gameobject.Enemy;
 import invaders.gameobject.GameObject;
 import invaders.entities.Player;
 import invaders.mementoUndo.Caretaker;
-import invaders.mementoUndo.GameEngineMemento;
 import invaders.mementoUndo.GameMemento;
-import invaders.mementoUndo.Originator;
 import invaders.observer.ConcreteScoreObs;
-import invaders.observer.ConcreteTimeObs;
 import invaders.observer.Observer;
 import invaders.observer.Subject;
 import invaders.rendering.Renderable;
@@ -39,7 +35,7 @@ public class GameEngine implements Subject {
 	private List<Renderable> pendingToAddRenderable = new ArrayList<>();
 	private List<Renderable> pendingToRemoveRenderable = new ArrayList<>();
 
-	ConcreteScoreObs scoreObserver ;
+	private ConcreteScoreObs scoreObserver ;
 	private Player player;
 
 	private boolean left;
@@ -47,17 +43,13 @@ public class GameEngine implements Subject {
 	private int gameWidth;
 	private int gameHeight;
 	private int timer = 45;
-	private Caretaker caretaker;
-	private GameEngineMemento gameMemento;
-	private boolean restore;
-	private boolean save;
+
 
 
 	public GameEngine(String config){
 		// Read the config here
 
 		ConfigReader.parse(config);
-		this.setCaretaker(new Caretaker());
 		this.scoreObserver = new ConcreteScoreObs(0);
 
 
@@ -165,14 +157,6 @@ public class GameEngine implements Subject {
 		}
 
 	}
-	public void setCaretaker(Caretaker caretaker){
-		this.caretaker = caretaker;
-	}
-	public Caretaker getCaretaker(){
-		return this.caretaker;
-	}
-
-
 	public List<Renderable> getRenderables(){
 		return renderables;
 	}
@@ -215,13 +199,12 @@ public class GameEngine implements Subject {
 	}
 
 	public boolean shootPressed(){
-		if(timer>45 && player.isAlive()){
 
+		if(timer>45 && player.isAlive()){
 			Projectile projectile = player.shoot();
 			gameObjects.add(projectile);
 			renderables.add(projectile);
 			timer=0;
-			System.out.println("Shooting");
 			return true;
 		}
 		return false;
@@ -237,9 +220,7 @@ public class GameEngine implements Subject {
 		}
 	}
 
-	public GameEngineMemento getMemento(){
-		return this.gameMemento;
-	}
+
 
 	public int getGameWidth() {
 		return gameWidth;
@@ -252,13 +233,9 @@ public class GameEngine implements Subject {
 	public Player getPlayer() {
 		return player;
 	}
-	public void setPlayer(Player player){
-		this.player = player;
-	}
 	public ConcreteScoreObs getObservers(){
 		return this.scoreObserver;
 	}
-
 	@Override
 	public void addObserver(Observer obs) {
 		this.scoreObserver = (ConcreteScoreObs) obs;

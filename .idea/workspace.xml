@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1406e39c-af8c-4de8-a550-86e2f918d11f" name="Changes" comment="#6&#10;TODO Difficulty&#10;Undo and cheat">
+    <list default="true" id="1406e39c-af8c-4de8-a550-86e2f918d11f" name="Changes" comment="#6&#10;TODO Difficulty&#10;Undo for all the entities except player">
+      <change afterPath="$PROJECT_DIR$/src/main/java/invaders/mementoUndo/PlayerMemento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/invaders/mementoUndo/ScoreObserverMemento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/invaders/mementoUndo/TimeObserverMemento.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.bin" afterDir="false" />
@@ -16,18 +19,56 @@
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/engine/GameEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/invaders/engine/GameEngine.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/engine/GameWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/invaders/engine/GameWindow.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/entities/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/invaders/entities/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/factory/EnemyProjectile.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/invaders/factory/EnemyProjectile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/gameobject/Bunker.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/invaders/gameobject/Bunker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/gameobject/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/invaders/gameobject/Enemy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/App.class.uniqueId1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/GameWindow.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/mementoUndo/Caretaker.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/invaders/mementoUndo/Caretaker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/mementoUndo/GameEngineMemento.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/mementoUndo/GameMemento.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/invaders/mementoUndo/GameMemento.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/mementoUndo/Originator.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/invaders/mementoUndo/Originator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/observer/ConcreteScoreObs.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/invaders/observer/ConcreteScoreObs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/invaders/observer/ConcreteTimeObs.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/invaders/observer/ConcreteTimeObs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/App.class.uniqueId13" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Builder.class.uniqueId10" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Bunker.class.uniqueId3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/BunkerBuilder.class.uniqueId17" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Caretaker.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ConcreteScoreObs.class.uniqueId21" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Director.class.uniqueId2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Enemy.class.uniqueId4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/EnemyBuilder.class.uniqueId9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/EnemyProjectile.class.uniqueId23" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/EnemyProjectileFactory.class.uniqueId5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/FastProjectileStrategy.class.uniqueId11" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/GameEngine.class.uniqueId6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/GameEngineMemento.class.uniqueId8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/GameMemento.class.uniqueId20" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/GameObject.class.uniqueId18" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/GameObjectPrototype.class.uniqueId30" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/GameWindow.class.uniqueId28" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/GreenState.class.uniqueId16" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/KeyboardInputHandler.class.uniqueId15" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/NormalProjectileStrategy.class.uniqueId24" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Originator.class.uniqueId22" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Player.class.uniqueId12" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PlayerProjectile.class.uniqueId7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PlayerProjectileFactory.class.uniqueId1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Projectile.class.uniqueId19" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ProjectileFactory.class.uniqueId14" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ProjectileStrategy.class.uniqueId27" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/RedState.class.uniqueId31" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/SlowProjectileStrategy.class.uniqueId25" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/SpaceBackground.class.uniqueId29" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/YellowState.class.uniqueId26" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/invaders/engine/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/engine/GameEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/invaders/engine/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/engine/GameWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/engine/KeyboardInputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/engine/KeyboardInputHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/invaders/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/entities/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/factory/EnemyProjectile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/factory/EnemyProjectile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/gameobject/Bunker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/gameobject/Bunker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/gameobject/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/gameobject/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/gameobject/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/gameobject/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/mementoUndo/Caretaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/mementoUndo/Caretaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/mementoUndo/GameEngineMemento.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/mementoUndo/GameMemento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/mementoUndo/GameMemento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/mementoUndo/Originator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/mementoUndo/Originator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/observer/ConcreteScoreObs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/observer/ConcreteScoreObs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/observer/ConcreteTimeObs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/observer/ConcreteTimeObs.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,8 +95,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -127,7 +168,8 @@
       <workItem from="1698050274763" duration="16814000" />
       <workItem from="1698101876406" duration="2843000" />
       <workItem from="1698142596278" duration="5971000" />
-      <workItem from="1698188278312" duration="1256000" />
+      <workItem from="1698188278312" duration="1286000" />
+      <workItem from="1698299666739" duration="8062000" />
     </task>
     <task id="LOCAL-00001" summary="#1 init">
       <option name="closed" value="true" />
@@ -265,7 +307,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698102447553</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="#6&#10;TODO Difficulty&#10;Undo for all the entities except player">
+      <option name="closed" value="true" />
+      <created>1698201069952</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1698201069952</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,6 +354,7 @@
     <MESSAGE value="#6 &#10;TODO Difficulty&#10;Undo and cheat" />
     <MESSAGE value="#6 &#10;Attempt Undo" />
     <MESSAGE value="#6&#10;TODO Difficulty&#10;Undo and cheat" />
-    <option name="LAST_COMMIT_MESSAGE" value="#6&#10;TODO Difficulty&#10;Undo and cheat" />
+    <MESSAGE value="#6&#10;TODO Difficulty&#10;Undo for all the entities except player" />
+    <option name="LAST_COMMIT_MESSAGE" value="#6&#10;TODO Difficulty&#10;Undo for all the entities except player" />
   </component>
 </project>

@@ -9,12 +9,21 @@ public class ConcreteTimeObs implements Observer{
     int minute = 0;
     int millis = 0;
 
-
+    public void setMillis(int millis){this.millis = millis;}
     public void setMinute(int time){
         this.minute = time;
     }
     public void setSecond(int time){
         this.second = time;
+    }
+    public int getSecond(){
+        return this.second;
+    }
+    public int getMillis(){
+        return this.millis;
+    }
+    public int getMinute(){
+        return this.minute;
     }
     public String toString(){
         return String.format("%02d:%02d", minute, second);

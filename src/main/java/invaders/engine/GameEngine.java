@@ -25,7 +25,8 @@ import org.json.simple.JSONObject;
  * This class manages the main loop and logic of the game
  */
 public class GameEngine implements Subject {
-	//TODO change this 2 to change difficulty
+
+	private static GameEngine instance = null;
 	private List<GameObject> gameObjects = new ArrayList<>(); // A list of game objects that gets updated each frame
 	private List<Renderable> renderables =  new ArrayList<>();
 
@@ -45,6 +46,9 @@ public class GameEngine implements Subject {
 	private int timer = 45;
 
 
+	private GameEngine(){
+
+	}
 
 	public GameEngine(String config){
 		// Read the config here

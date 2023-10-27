@@ -102,10 +102,8 @@ public class GameWindow implements Subject, Originator {
         if(diffChanged){
             //put operations to change mode here.
             //need a mechanic to remove entity sprites when switch difficulty
-            for(EntityView entityView: this.entityViews){
-                this.pane.getChildren().remove(entityView.getNode());
-            }
-            this.entityViews.clear();
+            resetPane();
+
             if(keyboardInputHandler.isEasyMode()) {
 
                 model.changeDifficultyLevel(1);
@@ -117,6 +115,12 @@ public class GameWindow implements Subject, Originator {
             }
             this.diffChanged = false;
         }
+    }
+    private void resetPane(){
+        for(EntityView entityView: this.entityViews){
+            this.pane.getChildren().remove(entityView.getNode());
+        }
+        this.entityViews.clear();
     }
     public void printScoreBoard(){
         gc.setFill(Paint.valueOf("WHITE"));

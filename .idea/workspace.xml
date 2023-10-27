@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1406e39c-af8c-4de8-a550-86e2f918d11f" name="Changes" comment="#4 Undo feature">
-      <change afterPath="$PROJECT_DIR$/src/main/java/invaders/prototype/GameEnginePrototype.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/engine/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/engine/GameEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/engine/KeyboardInputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/engine/KeyboardInputHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/gameobject/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/gameobject/GameObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/mementoUndo/Caretaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/mementoUndo/Caretaker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/mementoUndo/GameMemento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/mementoUndo/GameMemento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/invaders/rendering/Renderable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/invaders/rendering/Renderable.java" afterDir="false" />
-    </list>
+    <list default="true" id="1406e39c-af8c-4de8-a550-86e2f918d11f" name="Changes" comment="#6&#10;TODO Difficulty&#10;Undo for all the entities except player" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,6 +36,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Diff_change" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
@@ -60,22 +55,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/phkya/Documents/GitHub/StrategyBalls1&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/phkya/Documents/GitHub/SpaceInvader",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -102,6 +97,14 @@
       <workItem from="1697584079346" duration="6038000" />
       <workItem from="1697621423454" duration="9233000" />
       <workItem from="1697677189464" duration="4435000" />
+      <workItem from="1697705388691" duration="22887000" />
+      <workItem from="1697887839174" duration="1744000" />
+      <workItem from="1698030028562" duration="3000" />
+      <workItem from="1698050274763" duration="16814000" />
+      <workItem from="1698101876406" duration="2843000" />
+      <workItem from="1698142596278" duration="5971000" />
+      <workItem from="1698188278312" duration="1286000" />
+      <workItem from="1698299666739" duration="8062000" />
     </task>
     <task id="LOCAL-00001" summary="#1 init">
       <option name="closed" value="true" />
@@ -199,11 +202,82 @@
       <option name="project" value="LOCAL" />
       <updated>1697631478176</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="#5 Time and Score, &#10;TODO Difficulty&#10;Undo and cheat">
+      <option name="closed" value="true" />
+      <created>1697767516152</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1697767516152</updated>
+    </task>
+    <task id="LOCAL-00014" summary="#6 &#10;TODO Difficulty&#10;Undo and cheat">
+      <option name="closed" value="true" />
+      <created>1697780434074</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1697780434074</updated>
+    </task>
+    <task id="LOCAL-00015" summary="#6&#10;TODO Difficulty&#10;Undo and cheat">
+      <option name="closed" value="true" />
+      <created>1698069280226</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1698069280226</updated>
+    </task>
+    <task id="LOCAL-00016" summary="#6&#10;TODO Difficulty&#10;Undo and cheat">
+      <option name="closed" value="true" />
+      <created>1698102438727</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1698102438727</updated>
+    </task>
+    <task id="LOCAL-00017" summary="#6&#10;TODO Difficulty&#10;Undo and cheat">
+      <option name="closed" value="true" />
+      <created>1698102447553</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1698102447553</updated>
+    </task>
+    <task id="LOCAL-00018" summary="#6&#10;TODO Difficulty&#10;Undo for all the entities except player">
+      <option name="closed" value="true" />
+      <created>1698201069952</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1698201069952</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Undo-and-Cheat" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="#1 init" />
@@ -211,6 +285,11 @@
     <MESSAGE value="#2 asdhadauiwhdia so hard" />
     <MESSAGE value="#3 rethink" />
     <MESSAGE value="#4 Undo feature" />
-    <option name="LAST_COMMIT_MESSAGE" value="#4 Undo feature" />
+    <MESSAGE value="#5 Time and Score, &#10;TODO Difficulty&#10;Undo and cheat" />
+    <MESSAGE value="#6 &#10;TODO Difficulty&#10;Undo and cheat" />
+    <MESSAGE value="#6 &#10;Attempt Undo" />
+    <MESSAGE value="#6&#10;TODO Difficulty&#10;Undo and cheat" />
+    <MESSAGE value="#6&#10;TODO Difficulty&#10;Undo for all the entities except player" />
+    <option name="LAST_COMMIT_MESSAGE" value="#6&#10;TODO Difficulty&#10;Undo for all the entities except player" />
   </component>
 </project>

@@ -27,14 +27,17 @@ import org.json.simple.JSONObject;
 public class GameEngine implements Subject {
 
 	private static GameEngine instance = null;
-	private List<GameObject> gameObjects = new ArrayList<>(); // A list of game objects that gets updated each frame
-	private List<Renderable> renderables =  new ArrayList<>();
+	private static final String EASY_CONFIG = "src/main/resources/config_easy.json";
+	private static final String MEDIUM_CONFIG = "src/main/resources/config_medium.json";
+	private static final String HARD_CONFIG = "src/main/resources/config_hard.json";
+	private List<GameObject> gameObjects; // A list of game objects that gets updated each frame
+	private List<Renderable> renderables;
 
-	private List<GameObject> pendingToAddGameObject = new ArrayList<>();
-	private List<GameObject> pendingToRemoveGameObject = new ArrayList<>();
+	private List<GameObject> pendingToAddGameObject;
+	private List<GameObject> pendingToRemoveGameObject;
 
-	private List<Renderable> pendingToAddRenderable = new ArrayList<>();
-	private List<Renderable> pendingToRemoveRenderable = new ArrayList<>();
+	private List<Renderable> pendingToAddRenderable;
+	private List<Renderable> pendingToRemoveRenderable;
 
 	private ConcreteScoreObs scoreObserver ;
 	private Player player;
@@ -47,17 +50,39 @@ public class GameEngine implements Subject {
 
 
 	private GameEngine(){
-
+		initialize(EASY_CONFIG);
+	}
+	public static GameEngine getInstance(){
+		if(instance == null){
+			synchronized (GameEngine.class) {
+				if (instance == null) {
+					instance = new GameEngine();
+				}
+			}
+		}
+		return instance;
+	}
+	public void changeDifficultyLevel(int levelCode){
+		if(levelCode == 1){
+			initialize(EASY_CONFIG);
+		}else if(levelCode == 2){
+			initialize(MEDIUM_CONFIG);
+		}else if (levelCode == 3) {
+			initialize(HARD_CONFIG);
+		}
+		return;
 	}
 
-	public GameEngine(String config){
+	private void initialize(String config){
 		// Read the config here
-
+		renderables = new ArrayList<>();
+		gameObjects = new ArrayList<>();
+		pendingToRemoveGameObject = new ArrayList<>();
+		pendingToAddGameObject = new ArrayList<>();
+		pendingToAddRenderable = new ArrayList<>();
+		pendingToRemoveRenderable = new ArrayList<>();
 		ConfigReader.parse(config);
 		this.scoreObserver = new ConcreteScoreObs(0);
-
-
-
 		// Get game width and height
 		gameWidth = ((Long)((JSONObject) ConfigReader.getGameInfo().get("size")).get("x")).intValue();
 		gameHeight = ((Long)((JSONObject) ConfigReader.getGameInfo().get("size")).get("y")).intValue();

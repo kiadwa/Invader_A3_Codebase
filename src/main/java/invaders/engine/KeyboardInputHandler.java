@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Set;
 
 class KeyboardInputHandler {
-    private GameEngine model;
+    private final GameEngine model;
     private boolean left = false;
     private boolean right = false;
     private boolean easyMode = true;
@@ -42,10 +42,11 @@ class KeyboardInputHandler {
             return;
         }
         pressedKeys.add(keyEvent.getCode());
-
+        if(keyEvent.getCode().equals(KeyCode.S)){
+            this.setSaving(true);
+        }
         if(keyEvent.getCode().equals(KeyCode.R)){
             this.setRestoring(true);
-
         }
 
         if(keyEvent.getCode().equals(KeyCode.DIGIT1)){
@@ -74,7 +75,7 @@ class KeyboardInputHandler {
         }
 
         if (keyEvent.getCode().equals(KeyCode.SPACE)) {
-            this.setSaving(true);
+            //this.setSaving(true);
             if (model.shootPressed()) {
                 MediaPlayer shoot = sounds.get("shoot");
                 shoot.stop();

@@ -101,7 +101,20 @@ public class GameWindow implements Subject, Originator {
     public void revertModeChange(){
         if(diffChanged){
             //put operations to change mode here.
-            System.out.println("Change Mode now");
+            //need a mechanic to remove entity sprites when switch difficulty
+            for(EntityView entityView: this.entityViews){
+                this.pane.getChildren().remove(entityView.getNode());
+            }
+            this.entityViews.clear();
+            if(keyboardInputHandler.isEasyMode()) {
+
+                model.changeDifficultyLevel(1);
+            }else if(keyboardInputHandler.isMediumMode()){
+
+                model.changeDifficultyLevel(2);
+            }else if(keyboardInputHandler.isHardMode()){
+                model.changeDifficultyLevel(3);
+            }
             this.diffChanged = false;
         }
     }
@@ -237,16 +250,17 @@ public class GameWindow implements Subject, Originator {
                 }
             }
         }
+        //Add player original into renderable memento to make sure player exist when restore
         renderableMemento.add(this.model.getPlayer());
 
-
+        //init player state memento
         PlayerMemento playerMemento = new PlayerMemento();
         playerMemento.setPosition(new Vector2D(this.model.getPlayer().getPosition().getX(),this.model.getPlayer().getPosition().getY()));
         playerMemento.setHealth(this.model.getPlayer().getHealth());
-
+        //init time and score observer memento
         TimeObserverMemento timeObserverMemento = new TimeObserverMemento(this.timeObs.getMinute(),this.timeObs.getSecond(),this.timeObs.getMillis());
         ScoreObserverMemento scoreObserverMemento = new ScoreObserverMemento(this.model.getObservers().getTotalScore());
-
+        //save all states into game memento
         gameMemento.setGameGameObjectsState(gameObjectMemento);
         gameMemento.setGameRenderablesState(renderableMemento);
         gameMemento.setPlayerMemento(playerMemento);
@@ -257,16 +271,8 @@ public class GameWindow implements Subject, Originator {
 
     @Override
     public void restore(GameMemento memento) {
+        resetPanePostChanges();
         //need to use matchesEntity() to remove old objects from entityview
-        for(Renderable renderable: this.model.getRenderables()){
-            for(EntityView entityView: this.entityViews){
-                if(entityView.matchesEntity(renderable)){
-                    this.entityViews.remove(entityView);
-                    this.pane.getChildren().remove(entityView.getNode());
-                    break;
-                }
-            }
-        }
         this.model.getPlayer().setPosition(memento.getPlayerMemento().getPosition());
         this.model.getPlayer().setHealth(memento.getPlayerMemento().getHealth());
         this.model.setRenderables(memento.getGameRenderablesState());
@@ -278,4 +284,20 @@ public class GameWindow implements Subject, Originator {
         this.timeObs.setSecond(caretaker.getGameMementos().getTimeObserverMemento().getSecond());
         this.model.getObservers().setTotalScore(caretaker.getGameMementos().getScoreObserverMemento().getScore());
     }
+    /***
+     * Method for removing obsolete entity view from the pane after any changes made to
+     * the state of GameEngine
+     */
+    public void resetPanePostChanges(){
+        for(Renderable renderable: this.model.getRenderables()){
+            for(EntityView entityView: this.entityViews){
+                if(entityView.matchesEntity(renderable)){
+                    this.entityViews.remove(entityView);
+                    this.pane.getChildren().remove(entityView.getNode());
+                    break;
+                }
+            }
+        }
+    }
+
 }

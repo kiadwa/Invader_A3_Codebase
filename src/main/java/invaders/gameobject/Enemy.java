@@ -66,7 +66,7 @@ public class Enemy implements GameObject, Renderable {
 
         if(this.position.getX()<=this.image.getWidth() || this.position.getX()>=(engine.getGameWidth()-this.image.getWidth()-1)){
             this.position.setY(this.position.getY()+25);
-            System.out.println("Going back");
+            //System.out.println("Going back");
             xVel*=-1;
         }
 

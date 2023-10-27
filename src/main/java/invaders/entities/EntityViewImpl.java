@@ -60,4 +60,9 @@ public class EntityViewImpl implements EntityView {
     public boolean isMarkedForDelete() {
         return delete;
     }
+
+    @Override
+    public EntityView copy() {
+        return new EntityViewImpl(this.entity);
+    }
 }

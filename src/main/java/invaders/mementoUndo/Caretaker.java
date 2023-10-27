@@ -4,13 +4,13 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Caretaker {
-    private  GameEngineMemento gameEngineMementos;
+    private  GameMemento gameMemento;
 
-    public void addMemento(GameEngineMemento gameEngineMemento){
-        gameEngineMementos = gameEngineMemento;
+    public void setGameMementos(GameMemento gameMemento){
+        this.gameMemento = gameMemento;
     }
-    public GameEngineMemento getMemento(){
-        return gameEngineMementos;
+    public GameMemento getGameMementos(){
+        return gameMemento;
     }
 
 

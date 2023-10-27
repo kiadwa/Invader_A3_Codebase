@@ -1,21 +1,23 @@
 package invaders.gameobject;
 
 import invaders.engine.GameEngine;
+import invaders.factory.EnemyProjectile;
 import invaders.factory.EnemyProjectileFactory;
 import invaders.factory.Projectile;
 import invaders.factory.ProjectileFactory;
-import invaders.physics.Collider;
 import invaders.physics.Vector2D;
-import invaders.prototype.EnemyPrototype;
 import invaders.rendering.Renderable;
+import invaders.strategy.FastProjectileStrategy;
 import invaders.strategy.ProjectileStrategy;
+import invaders.strategy.SlowProjectileStrategy;
 import javafx.scene.image.Image;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
-public class Enemy implements GameObject, Renderable, EnemyPrototype {
+public class Enemy implements GameObject, Renderable {
     private Vector2D position;
     private int lives = 1;
     private Image image;
@@ -64,6 +66,7 @@ public class Enemy implements GameObject, Renderable, EnemyPrototype {
 
         if(this.position.getX()<=this.image.getWidth() || this.position.getX()>=(engine.getGameWidth()-this.image.getWidth()-1)){
             this.position.setY(this.position.getY()+25);
+            System.out.println("Going back");
             xVel*=-1;
         }
 
@@ -87,6 +90,9 @@ public class Enemy implements GameObject, Renderable, EnemyPrototype {
     @Override
     public double getWidth() {
         return this.image.getWidth();
+    }
+    public void setxVel(int xVel){
+        this.xVel = xVel;
     }
 
     @Override
@@ -134,6 +140,49 @@ public class Enemy implements GameObject, Renderable, EnemyPrototype {
     public String getRenderableObjectName() {
         return "Enemy";
     }
+    public void setProjectileFactory(ProjectileFactory projectileFactory){
+        this.projectileFactory = projectileFactory;
+    }
+    public void setRandom(Random random){this.random = random;}
+    public void setEnemyProjectile(ArrayList<Projectile> enemyProjectile){
+        this.enemyProjectile = enemyProjectile;
+    }
+    public void setPendingToDeleteEnemyProjectile(ArrayList<Projectile> pendingToDeleteEnemyProjectile){
+        this.pendingToDeleteEnemyProjectile = pendingToDeleteEnemyProjectile;
+    }
+    @Override
+    public Renderable copyR() {
+        ArrayList<Projectile> enemyProjectile = new ArrayList<>();
+        ArrayList<Projectile> pendingToDeleteEnemyProjectile = new ArrayList<>();
+        for(Projectile projectile: this.enemyProjectile){
+            enemyProjectile.add((Projectile) projectile.copyR());
+        }
+        for(Projectile projectile: this.pendingToDeleteEnemyProjectile){
+            pendingToDeleteEnemyProjectile.add((Projectile) projectile.copyR());
+        }
+        Enemy enemy = new Enemy(new Vector2D(this.position.getX(),this.position.getY()));
+        int xvel = this.xVel;
+        int lives1 = this.lives;
+
+        enemy.setLives(lives1);
+        enemy.setxVel(xVel);
+        enemy.setProjectileFactory(new EnemyProjectileFactory());
+        //enemy.setEnemyProjectile(enemyProjectile);
+        //enemy.setPendingToDeleteEnemyProjectile(pendingToDeleteEnemyProjectile);
+        //enemy.setRandom(new Random());
+        if(this.projectileStrategy instanceof SlowProjectileStrategy){
+            enemy.setProjectileStrategy(new SlowProjectileStrategy());
+            enemy.setImage(new Image(new File("src/main/resources/slow_alien.png").toURI().toString(), 20, 20, true, true));
+            enemy.setProjectileImage(new Image(new File("src/main/resources/alien_shot_slow.png").toURI().toString(), 10, 10, true, true));
+        }else{
+            enemy.setProjectileStrategy(new FastProjectileStrategy());
+            enemy.setImage(new Image(new File("src/main/resources/fast_alien.png").toURI().toString(), 20, 20, true, true));
+            enemy.setProjectileImage(new Image(new File("src/main/resources/alien_shot_fast.png").toURI().toString(), 10, 10, true, true));
+        }
+
+        return enemy;
+
+    }
 
     @Override
     public boolean isAlive() {
@@ -148,15 +197,6 @@ public class Enemy implements GameObject, Renderable, EnemyPrototype {
         return projectileStrategy;
     }
 
-    @Override
-    public Enemy copy() {
-        Enemy enemy = new Enemy(this.position);
-        enemy.setImage(this.image);
-        enemy.setLives(this.lives);
-        enemy.setPosition(this.position);
-        enemy.setProjectileStrategy(this.projectileStrategy);
-        enemy.setProjectileImage(this.projectileImage);
 
-        return enemy;
-    }
+
 }

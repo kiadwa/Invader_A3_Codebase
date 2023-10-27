@@ -1,15 +1,11 @@
 package invaders.entities;
 
 import invaders.ConfigReader;
-import invaders.factory.PlayerProjectile;
 import invaders.factory.PlayerProjectileFactory;
 import invaders.factory.Projectile;
 import invaders.factory.ProjectileFactory;
-import invaders.physics.Collider;
 import invaders.physics.Moveable;
 import invaders.physics.Vector2D;
-import invaders.prototype.PlayerPrototype;
-import invaders.rendering.Animator;
 import invaders.rendering.Renderable;
 
 import invaders.strategy.NormalProjectileStrategy;
@@ -18,9 +14,9 @@ import org.json.simple.JSONObject;
 
 import java.io.File;
 
-public class Player implements Moveable, Renderable, PlayerPrototype {
+public class Player implements Moveable, Renderable {
 
-    private final Vector2D position;
+    private Vector2D position;
     private double health;
     private double velocity;
 
@@ -104,6 +100,12 @@ public class Player implements Moveable, Renderable, PlayerPrototype {
     public Vector2D getPosition() {
         return position;
     }
+    public void setPosition(Vector2D vector2D){
+        this.position = vector2D;
+    }
+    public void setPlayerProjectileFactory(PlayerProjectileFactory projectileFactory){
+        this.playerProjectileFactory = projectileFactory;
+    }
 
     @Override
     public Layer getLayer() {
@@ -116,12 +118,18 @@ public class Player implements Moveable, Renderable, PlayerPrototype {
     }
 
     @Override
-    public Player copy() {
-        Player player = new Player(this.playerInfo);
-        player.getPosition().setX(this.position.getX());
-        player.getPosition().setY(this.position.getY());
+    public Renderable copyR() {
+        /*
+        Vector2D vector2D = new Vector2D(this.position.getX(),this.position.getY());
+        Player player = new Player(ConfigReader.getPlayerInfo());
         player.setHealth(this.getHealth());
+        player.setPlayerProjectileFactory(new PlayerProjectileFactory());
+        player.setPosition(vector2D);
         return player;
-        //Player player = new Player();
+
+         */
+        return null;
     }
+
+
 }

@@ -22,7 +22,7 @@ public class ConcreteScoreObs implements Observer {
         this.totalScore = initScore;
 
     }
-
+    public void setTotalScore(int score){this.totalScore = score;}
 
     public int getTotalScore() {
         return totalScore;

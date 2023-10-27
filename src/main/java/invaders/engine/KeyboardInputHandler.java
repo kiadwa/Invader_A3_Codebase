@@ -19,6 +19,8 @@ class KeyboardInputHandler {
     private boolean mediumMode = false;
     private boolean hardMode = false;
     private boolean modeJustChanged = false;
+    private boolean saving = false;
+    private boolean restoring = false;
     private Set<KeyCode> pressedKeys = new HashSet<>();
 
     private Map<String, MediaPlayer> sounds = new HashMap<>();
@@ -40,12 +42,10 @@ class KeyboardInputHandler {
             return;
         }
         pressedKeys.add(keyEvent.getCode());
-        if(keyEvent.getCode().equals(KeyCode.S)){
-            System.out.println("Save");
-        }
-        if(keyEvent.getCode().equals(KeyCode.R)){
 
-           System.out.println("Restore");
+        if(keyEvent.getCode().equals(KeyCode.R)){
+            this.setRestoring(true);
+
         }
 
         if(keyEvent.getCode().equals(KeyCode.DIGIT1)){
@@ -74,6 +74,7 @@ class KeyboardInputHandler {
         }
 
         if (keyEvent.getCode().equals(KeyCode.SPACE)) {
+            this.setSaving(true);
             if (model.shootPressed()) {
                 MediaPlayer shoot = sounds.get("shoot");
                 shoot.stop();
@@ -115,6 +116,14 @@ class KeyboardInputHandler {
             model.rightReleased();
             right = false;
         }
+    }
+    public boolean isSaving(){return this.saving;}
+    public boolean isRestoring(){return this.restoring;}
+    public void setSaving(boolean saving){
+        this.saving = saving;
+    }
+    public void setRestoring(boolean restoring){
+        this.restoring = restoring;
     }
     public boolean isEasyMode(){return this.easyMode;}
     public boolean isMediumMode(){return this.mediumMode;}

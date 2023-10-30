@@ -106,10 +106,13 @@ public class GameWindow implements Subject, Originator {
 
             if(keyboardInputHandler.isEasyMode()) {
                 model.changeDifficultyLevel(1);
+                this.caretaker.setGameMementos(null);
             }else if(keyboardInputHandler.isMediumMode()){
                 model.changeDifficultyLevel(2);
+                this.caretaker.setGameMementos(null);
             }else if(keyboardInputHandler.isHardMode()){
                 model.changeDifficultyLevel(3);
+                this.caretaker.setGameMementos(null);
             }
             this.diffChanged = false;
         }

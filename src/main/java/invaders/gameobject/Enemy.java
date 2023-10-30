@@ -154,6 +154,7 @@ public class Enemy implements GameObject, Renderable {
     public Renderable copyR() {
         ArrayList<Projectile> enemyProjectile = new ArrayList<>();
         ArrayList<Projectile> pendingToDeleteEnemyProjectile = new ArrayList<>();
+
         for(Projectile projectile: this.enemyProjectile){
             enemyProjectile.add((Projectile) projectile.copyR());
         }
@@ -167,9 +168,11 @@ public class Enemy implements GameObject, Renderable {
         enemy.setLives(lives1);
         enemy.setxVel(xVel);
         enemy.setProjectileFactory(new EnemyProjectileFactory());
+
         //enemy.setEnemyProjectile(enemyProjectile);
         //enemy.setPendingToDeleteEnemyProjectile(pendingToDeleteEnemyProjectile);
         //enemy.setRandom(new Random());
+
         if(this.projectileStrategy instanceof SlowProjectileStrategy){
             enemy.setProjectileStrategy(new SlowProjectileStrategy());
             enemy.setImage(new Image(new File("src/main/resources/slow_alien.png").toURI().toString(), 20, 20, true, true));

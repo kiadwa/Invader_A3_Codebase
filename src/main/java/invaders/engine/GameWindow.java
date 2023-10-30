@@ -238,6 +238,7 @@ public class GameWindow implements Subject, Originator {
 
         ArrayList<Renderable> renderableMemento = new ArrayList<>();
         ArrayList<GameObject> gameObjectMemento = new ArrayList<>();
+
         for(Renderable renderable: model.getRenderables()) {
             if (!renderable.getRenderableObjectName().equals("Player")) {
                 Renderable copyRenderable = renderable.copyR();

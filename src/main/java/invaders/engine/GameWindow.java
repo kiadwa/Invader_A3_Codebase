@@ -105,10 +105,8 @@ public class GameWindow implements Subject, Originator {
             resetPane();
 
             if(keyboardInputHandler.isEasyMode()) {
-
                 model.changeDifficultyLevel(1);
             }else if(keyboardInputHandler.isMediumMode()){
-
                 model.changeDifficultyLevel(2);
             }else if(keyboardInputHandler.isHardMode()){
                 model.changeDifficultyLevel(3);
@@ -276,18 +274,21 @@ public class GameWindow implements Subject, Originator {
 
     @Override
     public void restore(GameMemento memento) {
-        resetPanePostChanges();
-        //need to use matchesEntity() to remove old objects from entityview
-        this.model.getPlayer().setPosition(memento.getPlayerMemento().getPosition());
-        this.model.getPlayer().setHealth(memento.getPlayerMemento().getHealth());
-        this.model.setRenderables(memento.getGameRenderablesState());
-        this.model.setGameObjects(memento.getGameObjectsState());
-        this.model.getPendingToAddGameObject().clear();
-        this.model.getPendingToAddRenderable().clear();
-        this.timeObs.setMillis(caretaker.getGameMementos().getTimeObserverMemento().getMillis());
-        this.timeObs.setMinute(caretaker.getGameMementos().getTimeObserverMemento().getMinute());
-        this.timeObs.setSecond(caretaker.getGameMementos().getTimeObserverMemento().getSecond());
-        this.model.getObservers().setTotalScore(caretaker.getGameMementos().getScoreObserverMemento().getScore());
+        if(caretaker.getGameMementos() !=null) {
+            resetPanePostChanges();
+            //need to use matchesEntity() to remove old objects from entityview
+            this.model.getPlayer().setPosition(memento.getPlayerMemento().getPosition());
+            this.model.getPlayer().setHealth(memento.getPlayerMemento().getHealth());
+            this.model.setRenderables(memento.getGameRenderablesState());
+            this.model.setGameObjects(memento.getGameObjectsState());
+            this.model.getPendingToAddGameObject().clear();
+            this.model.getPendingToAddRenderable().clear();
+            this.timeObs.setMillis(caretaker.getGameMementos().getTimeObserverMemento().getMillis());
+            this.timeObs.setMinute(caretaker.getGameMementos().getTimeObserverMemento().getMinute());
+            this.timeObs.setSecond(caretaker.getGameMementos().getTimeObserverMemento().getSecond());
+            this.model.getObservers().setTotalScore(caretaker.getGameMementos().getScoreObserverMemento().getScore());
+            caretaker.setGameMementos(null);
+        }
     }
     /***
      * Method for removing obsolete entity view from the pane after any changes made to
@@ -295,13 +296,15 @@ public class GameWindow implements Subject, Originator {
      */
     public void resetPanePostChanges(){
         for(Renderable renderable: this.model.getRenderables()){
-            for(EntityView entityView: this.entityViews){
-                if(entityView.matchesEntity(renderable)){
-                    this.entityViews.remove(entityView);
-                    this.pane.getChildren().remove(entityView.getNode());
-                    break;
+            //if(!renderable.getRenderableObjectName().equals("Player")) {
+                for (EntityView entityView : this.entityViews) {
+                    if (entityView.matchesEntity(renderable)) {
+                        this.entityViews.remove(entityView);
+                        this.pane.getChildren().remove(entityView.getNode());
+                        break;
+                    }
                 }
-            }
+            //}
         }
     }
 

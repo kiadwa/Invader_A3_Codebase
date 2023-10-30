@@ -149,8 +149,10 @@ public class GameWindow implements Subject, Originator {
 
 
         if(this.keyboardInputHandler.isSaving()){
-            this.caretaker.setGameMementos(this.save());
-            this.keyboardInputHandler.setSaving(false);
+            if(detectIfPlayerHasShoot()) {
+                this.caretaker.setGameMementos(this.save());
+                this.keyboardInputHandler.setSaving(false);
+            }
         }
         if(this.keyboardInputHandler.isRestoring()){
             if(this.caretaker.getGameMementos() != null){
@@ -306,6 +308,14 @@ public class GameWindow implements Subject, Originator {
                 }
             //}
         }
+    }
+    public boolean detectIfPlayerHasShoot(){
+        for(EntityView entityView: this.entityViews) {
+            if(entityView.getEntity().getRenderableObjectName().equals("PlayerProjectile")){
+                return true;
+            }
+        }
+        return false;
     }
 
 }

@@ -14,4 +14,5 @@ public interface EntityView extends EntvPrototype {
     Node getNode();
 
     boolean isMarkedForDelete();
+    Renderable getEntity();
 }

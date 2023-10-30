@@ -1,0 +1,64 @@
+<changelist name="Uncommitted_changes_before_Checkout_at_10_30_2023_12_23_PM_[Changes]" date="1698629004128" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_30_2023_12_23_PM_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 10/30/2023 12:23 PM [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/8.0.2/executionHistory/executionHistory.lock" />
+    <option name="AFTER_PATH" value=".gradle/8.0.2/executionHistory/executionHistory.lock" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_30_2023_12_23_PM_[Changes]/executionHistory.lock" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="build/classes/java/main/invaders/engine/GameWindow.class" />
+    <option name="AFTER_PATH" value="build/classes/java/main/invaders/engine/GameWindow.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_30_2023_12_23_PM_[Changes]/GameWindow.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/8.0.2/fileHashes/fileHashes.bin" />
+    <option name="AFTER_PATH" value=".gradle/8.0.2/fileHashes/fileHashes.bin" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_30_2023_12_23_PM_[Changes]/fileHashes.bin" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/8.0.2/fileHashes/fileHashes.lock" />
+    <option name="AFTER_PATH" value=".gradle/8.0.2/fileHashes/fileHashes.lock" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_30_2023_12_23_PM_[Changes]/fileHashes.lock" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="build/classes/java/main/invaders/gameobject/Enemy.class" />
+    <option name="AFTER_PATH" value="build/classes/java/main/invaders/gameobject/Enemy.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_30_2023_12_23_PM_[Changes]/Enemy.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="build/tmp/compileJava/previous-compilation-data.bin" />
+    <option name="AFTER_PATH" value="build/tmp/compileJava/previous-compilation-data.bin" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_30_2023_12_23_PM_[Changes]/previous-compilation-data.bin" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="build/tmp/compileJava/compileTransaction/stash-dir/GameWindow.class.uniqueId0" />
+    <option name="AFTER_PATH" value="build/tmp/compileJava/compileTransaction/stash-dir/GameWindow.class.uniqueId0" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_30_2023_12_23_PM_[Changes]/GameWindow.class.uniqueId0" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/buildOutputCleanup/buildOutputCleanup.lock" />
+    <option name="AFTER_PATH" value=".gradle/buildOutputCleanup/buildOutputCleanup.lock" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_30_2023_12_23_PM_[Changes]/buildOutputCleanup.lock" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/file-system.probe" />
+    <option name="AFTER_PATH" value=".gradle/file-system.probe" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_30_2023_12_23_PM_[Changes]/file-system.probe" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="build/classes/java/main/invaders/entities/Player.class" />
+    <option name="AFTER_PATH" value="build/classes/java/main/invaders/entities/Player.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_30_2023_12_23_PM_[Changes]/Player.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/8.0.2/fileHashes/resourceHashesCache.bin" />
+    <option name="AFTER_PATH" value=".gradle/8.0.2/fileHashes/resourceHashesCache.bin" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_30_2023_12_23_PM_[Changes]/resourceHashesCache.bin" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/8.0.2/executionHistory/executionHistory.bin" />
+    <option name="AFTER_PATH" value=".gradle/8.0.2/executionHistory/executionHistory.bin" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_30_2023_12_23_PM_[Changes]/executionHistory.bin" />
+  </binary>
+</changelist>

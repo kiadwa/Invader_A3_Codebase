@@ -62,6 +62,11 @@ public class EntityViewImpl implements EntityView {
     }
 
     @Override
+    public Renderable getEntity() {
+        return this.entity;
+    }
+
+    @Override
     public EntityView copy() {
         return new EntityViewImpl(this.entity);
     }

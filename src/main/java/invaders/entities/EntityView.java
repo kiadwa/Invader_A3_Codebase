@@ -1,10 +1,9 @@
 package invaders.entities;
 
-import invaders.prototype.EntvPrototype;
 import javafx.scene.Node;
 import invaders.rendering.Renderable;
 
-public interface EntityView extends EntvPrototype {
+public interface EntityView {
     void update(double xViewportOffset, double yViewportOffset);
 
     boolean matchesEntity(Renderable entity);

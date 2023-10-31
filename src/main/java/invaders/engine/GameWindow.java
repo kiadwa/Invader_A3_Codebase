@@ -141,6 +141,9 @@ public class GameWindow implements Subject, Originator {
 
     private void draw(){
        // System.out.println(entityViews.size());
+        if(!model.checkIfGameNotEnd()){
+            return;
+        }
         this.timeObs.update();
         gc.clearRect(0, 0, width, height);
         model.update();

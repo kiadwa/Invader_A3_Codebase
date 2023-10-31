@@ -186,6 +186,18 @@ public class GameEngine implements Subject {
 		}
 
 	}
+	public boolean checkIfGameNotEnd(){
+		boolean playerAlive;
+		boolean enemyStillThere = false;
+		for(Renderable renderable: this.renderables){
+			if(renderable.getRenderableObjectName().equals("Enemy") && renderable.isAlive()){
+				enemyStillThere = true;
+				break;
+			}
+		}
+		playerAlive = player.isAlive();
+		return playerAlive && enemyStillThere;
+	}
 	public List<Renderable> getRenderables(){
 		return renderables;
 	}

@@ -119,7 +119,7 @@ public class Player implements Moveable, Renderable {
 
     @Override
     public Renderable copyR() {
-        return null;
+        return this;
     }
 
 

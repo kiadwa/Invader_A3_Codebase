@@ -66,8 +66,4 @@ public class EntityViewImpl implements EntityView {
         return this.entity;
     }
 
-    @Override
-    public EntityView copy() {
-        return new EntityViewImpl(this.entity);
-    }
 }

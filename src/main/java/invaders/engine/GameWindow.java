@@ -140,7 +140,6 @@ public class GameWindow implements Subject, Originator {
 
 
     private void draw(){
-       // System.out.println(entityViews.size());
         if(!model.checkIfGameNotEnd()){
             return;
         }
@@ -215,6 +214,7 @@ public class GameWindow implements Subject, Originator {
         model.getPendingToRemoveRenderable().clear();
 
         entityViews.removeIf(EntityView::isMarkedForDelete);
+
 
 
     }

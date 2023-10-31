@@ -108,7 +108,7 @@ class KeyboardInputHandler {
             justCheated = true;
             fastEnemyCheat.remove();
             int orgScore = model.getObservers().getTotalScore();
-            model.getObservers().setTotalScore(orgScore + fastEnemyCheat.getQuantity() *4);
+            model.getObservers().setTotalScore(orgScore + fastEnemyCheat.getQuantity() * 4);
         }
 
         if (keyEvent.getCode().equals(KeyCode.SPACE)) {
